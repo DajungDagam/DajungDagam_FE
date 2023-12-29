@@ -1,5 +1,3 @@
-/* Nav.module.css */
-
 body {
     overflow-x: hidden; /* 가로 스크롤 방지 */
 }
@@ -39,3 +37,8 @@ body {
 .menu span, .menu2 span {
     cursor: pointer;
 } 
+
+.menu a, .menu2 a {
+    text-decoration: none;
+    color: inherit;
+}
