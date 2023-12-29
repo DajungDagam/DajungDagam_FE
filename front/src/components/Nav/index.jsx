@@ -17,7 +17,6 @@ const Nav = props => {
                     <Link to="/login"><span>로그인</span></Link>
                 </div>
             </div>
-            {/* {props.children} */}
         </div>
     );
 };

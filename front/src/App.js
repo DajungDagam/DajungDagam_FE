@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Main from "./pages/Main";
 import BarterWriting from "./pages/Barter/Writing";
 import BarterMain from "./pages/Barter/Main";
+import BarterContent from './pages/Barter/Content';
 import GroupWriting from "./pages/GroupPurchase/Writing";
 import GroupMain from "./pages/GroupPurchase/Main";
 import RecommendMain from "./pages/Recommend/Main";
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/barterwriting" element={<BarterWriting/>} />
         <Route path="/bartermain" element={<BarterMain/>} />
+        <Route path="/bartercontent" element={<BarterContent/>} />
         <Route path="/groupwriting" element={<GroupWriting/>} />
         <Route path="/groupmain" element={<GroupMain/>} />
         <Route path="/barterwriting" element={<BarterWriting/>} />

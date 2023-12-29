@@ -9,9 +9,9 @@ return (
         <div className={classes.navHeader}>
             <div className={classes.logo}>다정다감</div>
             <div className={classes.menu}>
-                <Link to="/물물교환"><span>물물교환</span></Link>
-                <Link to="/공동구매"><span>공동구매</span></Link>
-                <Link to="/추천서비스"><span>추천서비스</span></Link>
+                    <Link to="/bartermain"><span>물물교환</span></Link>
+                    <Link to="/groupmain"><span>공동구매</span></Link>
+                    <Link to="/recommendmain"><span>추천서비스</span></Link>
             </div>
         </div>
     </div>
