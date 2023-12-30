@@ -19,7 +19,12 @@ function BarterWriting() {
             title="작성완료"
             onClick={hadleWritingComplete}
         />
-        물물교환 글쓰기 페이지
+        <div className={Styles.photo}>
+
+        </div>
+        <div className={Styles.photo}>
+
+        </div>
     </div>
     );
 }
