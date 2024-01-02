@@ -1,13 +1,11 @@
 .div {
 position: relative;
 border-radius: 21px;
-background-color: #fff;
 width: 100%;
 height: 770px;
 overflow: hidden;
 text-align: center;
 font-size: 16px;
-color: #4A362B;
 font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -19,6 +17,7 @@ font-family: 'Noto Sans KR', sans-serif;
     right: 50%;
     transform: translate(50%, -50%);
     background-color: #FAE100;
+    color: #381f1f;
     border-radius: 40px;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); 
 }
@@ -42,16 +41,11 @@ height: 10%;
 width: 51.41%;
 top: 21.17%;
 left: 24.3%;
-font-size: 50px;
+font-size: 40px;
 display: inline-block;
 color: #EE355F;
-font-weight: bold;
 }
 
 .span {
-font-weight: bold;
-}
-
-.span1 {
-color: #3C3C3C;
+color: #4A362B;
 }

@@ -10,8 +10,7 @@ return (
 
     <div className={styles.kakao}>Kakao 로그인</div>
     <div className={styles.div2}>
-        <span className={styles.span}>다정다감</span>
-        <span className={styles.span1}>에 오신것을 환영합니다 !</span>
+        <span className={styles.span}><strong>다정다감</strong>에 오신것을 환영합니다 !</span>
     </div>
     </div>
 );
