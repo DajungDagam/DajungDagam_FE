@@ -7,7 +7,10 @@ import BarterContent from './pages/Barter/Content';
 import GroupWriting from "./pages/GroupPurchase/Writing";
 import GroupMain from "./pages/GroupPurchase/Main";
 import RecommendMain from "./pages/Recommend/Main";
-import Login from "./pages/Login";
+import Login from "./pages/Login/Main";
+import NickName from "./pages/Login/NickName";
+import Addr from "./pages/Login/Addr";
+import Start from "./pages/Login/Start";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
         <Route path="/barterwriting" element={<BarterWriting/>} />
         <Route path="/recommendmain" element={<RecommendMain/>} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/loginnickname" element={<NickName/>} />
+        <Route path="/loginaddr" element={<Addr/>} />
+        <Route path="/loginstart" element={<Start/>} />
 
       </Routes>
     </Router>
