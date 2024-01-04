@@ -19,19 +19,21 @@ body {
 }
 
 .logo {
-    margin-right: 10%;
+    /* margin-right: 10%; */
+    margin-left: 300px;
     font-size: 24px;
 }
 
 .menu {
     display: flex;
     gap: 50px;
+    margin-left: 100px;
 }
 
 .menu2 {
     display: flex;
     gap: 50px;
-    margin-left: 50%;
+    margin-left: 20%;
 }
 
 .menu span, .menu2 span {
