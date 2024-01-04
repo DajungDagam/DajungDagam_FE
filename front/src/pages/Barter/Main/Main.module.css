@@ -1,0 +1,51 @@
+/* Main.module.css */
+
+/* Global styles */
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    /* color: #000; */
+  }
+  
+  /* Component-specific styles */
+  .main1Bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAEEEE;
+    height: 500px;
+  }
+  
+  .mainText1 {
+    text-align: left;
+    margin-right: 50px;
+  }
+  
+  .rabbit2 img {
+    max-width: 100%;
+    height: 400px;
+  }
+  
+  .mainHeading {
+    font-size: 54px;
+    color: #3C3C3C;
+    white-space: nowrap;
+    margin-bottom: 30px;
+  }
+  
+  .subHeading {
+    font-size: 20px;
+    color: #8C8C8C; 
+  }
+  
+  .surHeading {
+    font-size: 20px;
+    color: #4A362B;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+  
