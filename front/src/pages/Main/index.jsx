@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Nav from '../../components/Nav';
+import Nav2 from '../../components/Nav2';
 import Footer from '../../components/Footer';
 import classes from './Main.module.css';
 import rabbit1Image from "../../assets/rabbit1.png";
@@ -14,7 +14,7 @@ import rabbit4Image from "../../assets/rabbit4.png";
 const MainPage = () => {
   return (
     <div>
-        <Nav />
+        <Nav2 />
       {/* 첫 번째 섹션 */}
       <div className={classes.introBg}>
         <div className={classes.mainText1}>
