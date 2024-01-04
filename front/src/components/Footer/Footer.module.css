@@ -1,0 +1,40 @@
+/* Footer.module.css */
+
+.footer {
+    background-color: white;
+    padding: 20px;
+    margin-top: 30px;
+  }
+  
+  .footerContent {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .footerContent ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footerContent li {
+    margin-bottom: 5px;
+  }
+  
+  .footerContent li b {
+    font-weight: bold;
+  }
+  
+  .center {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .brownText {
+    font-size: 15px;
+    color: #3C3C3C;
+    font-weight: bold;
+  }
+  
