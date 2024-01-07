@@ -1,0 +1,51 @@
+.pageContainer {
+    background-color: #FAEEEE;
+}
+
+.description textarea{
+    width: 330px;
+    height: 120px;
+    font-size: 15px;
+    padding: 10px;
+    border: 1.4px solid #9D9D9D;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.label {
+    color: #3C3C3C;
+    font-size: 18px;
+    /* margin-right: 50px; */
+    width: 150px;
+}
+
+.open, .period, .description, .location, .state {
+    margin-top: 26px;
+    margin-bottom: 30px;
+    transform: translate(37%, 10%);
+}
+
+.labelContainer {
+    display: flex;
+    align-items: center;
+}
+
+.label2 {
+    font-size: 25px;
+    color: #3C3C3C;
+    text-align: center;
+    height: 50px;
+}
+
+.title {
+    margin-top: 26px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.back {
+    margin-left: 20%;
+    margin-top: 30px;
+    width: 45px;
+    height: 45px;
+}
