@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import Nav from '../../../components/Nav';
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { FaRegCopy } from "react-icons/fa6";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
+import { FaRegHeart } from "react-icons/fa";
 import Text from '../../../components/Text';
 import styles from "./Content.module.css";
 
 function BarterContent() {
+    const [gallery, setGallery] = useState(["rabbit1.png", "rabbit2.png", "rabbit3.png", "girl.png"]);  
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [open, setOpen] = useState("https://example.com");  
     const [period, setPeriod] = useState("");
     const [description, setDescription] = useState("");
@@ -18,14 +23,28 @@ function BarterContent() {
         alert("링크가 복사되었습니다.");
     };
 
+    const handlePrevClick = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + gallery.length) % gallery.length);
+    };
+
+    const handleNextClick = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % gallery.length);
+    };
+
     return (   
     <div className={styles.pageContainer}>
         <Nav />
-        <IoMdArrowRoundBack className={styles.back}/>
+        {/* <IoMdArrowRoundBack className={styles.back}/> */}
         <div className={styles.title}>
             <span className={styles.label2}>전신거울 필요하신 분</span>
         </div>
-        <div className={styles.photo}></div>
+        <div className={styles.gallery}>
+        <img src={require(`../../../assets/${gallery[currentIndex]}`)} alt={`Image ${currentIndex + 1}`} />
+            <div className={styles.arrows}>
+                <IoIosArrowBack onClick={handlePrevClick} className={styles.arrowIcon} />
+                <IoIosArrowForward onClick={handleNextClick} className={styles.arrowIcon} />
+            </div>
+        </div>
         <div className={styles.profile}></div>
         <div className={styles.open}>
             <div className={styles.labelContainer}>
