@@ -160,6 +160,7 @@ function BarterWriting() {
                 title="작성완료"
                 onClick={handleWritingComplete}
             />
+            <br /><br /><br /><br /><br />
             </div>
         </div>
     );
