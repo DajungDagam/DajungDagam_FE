@@ -11,7 +11,7 @@
     height: 150px;
     width: 150px;
     border-radius: 20px;
-    transform: translate(300%, 50%);
+    transform: translate(305%, 50%);
     font-size: 20px;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .selectedCategory {
-    background-color: #ffffff;
+    background-color: #e2e2e2;
 }
 
 .description {
@@ -92,7 +92,7 @@
     box-sizing: border-box;
 }
 
-.selectGu, .period {
+.selectGu, .period, .location, .link {
     margin-top: 50px;
     margin-left: 27%;
 }
@@ -116,4 +116,65 @@
 .button {
     margin-left: 27%;
     margin-top: 8%;
+}
+
+.leftDistrict, .rightDistrict {
+    width: 90%;
+    height: 50px;
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 1px solid #9D9D9D;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    margin-top: 20px; 
+}
+
+.rightDistrict {
+    margin-left: 30%; 
+}
+
+.leftDistrict select, .rightDistrict select {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    text-align-last: center; 
+}
+
+.selectBox {
+    margin-left: 30%;
+    margin-top: 50%;
+}
+
+.link {
+    margin-top: 50px;
+    margin-left: 27%;
+    width: 48.5%;
+}
+
+.link input {
+    width: 100%;
+    font-size: 15px;
+    padding: 13px;
+    border: 1px solid #9D9D9D;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-top: 25px;
+}
+
+.copyContainer {
+    display: flex;
+    align-items: center;
+}
+
+.copyIcon {
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 20px;
+    width: 20px;
+    height: 20px;
 }
