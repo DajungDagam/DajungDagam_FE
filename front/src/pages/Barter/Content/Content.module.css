@@ -38,14 +38,55 @@
 }
 
 .title {
-    margin-top: 26px;
+    margin-top: 50px;
     margin-bottom: 60px;
     text-align: center;
 }
 
 .back {
+    position: absolute;
     margin-left: 20%;
     margin-top: 30px;
     width: 45px;
     height: 45px;
+}
+
+.copyIcon {
+    margin-left: 10px;
+}
+
+.gallery {
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 60px;
+
+    img {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 8px;
+    }
+
+    .arrows {
+        position: absolute;
+        top: 10%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        transform: translateY(150%); 
+        margin: 0 auto;
+    }
+    
+    .arrowIcon {
+        font-size: 5em;
+        cursor: pointer;
+        color: #4A362B;
+        margin: 0 400px;
+    
+        &:hover {
+            color: #9D9D9D;
+        }
+    }
 }

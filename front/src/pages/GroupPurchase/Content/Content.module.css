@@ -1,0 +1,92 @@
+.pageContainer {
+    background-color: #FAEEEE;
+}
+
+.description textarea{
+    width: 330px;
+    height: 120px;
+    font-size: 15px;
+    padding: 10px;
+    border: 1.4px solid #9D9D9D;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.label {
+    color: #3C3C3C;
+    font-size: 18px;
+    /* margin-right: 50px; */
+    width: 150px;
+}
+
+.open, .period, .description, .location, .state {
+    margin-top: 26px;
+    margin-bottom: 30px;
+    transform: translate(37%, 10%);
+}
+
+.labelContainer {
+    display: flex;
+    align-items: center;
+}
+
+.label2 {
+    font-size: 25px;
+    color: #3C3C3C;
+    text-align: center;
+    height: 50px;
+}
+
+.title {
+    margin-top: 50px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.back {
+    position: absolute;
+    margin-left: 20%;
+    margin-top: 30px;
+    width: 45px;
+    height: 45px;
+}
+
+.copyIcon {
+    margin-left: 10px;
+}
+
+.gallery {
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 60px;
+
+    img {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 8px;
+    }
+
+    .arrows {
+        position: absolute;
+        top: 10%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        transform: translateY(150%); 
+        margin: 0 auto;
+    }
+    
+    .arrowIcon {
+        font-size: 5em;
+        cursor: pointer;
+        color: #4A362B;
+        margin: 0 400px;
+    
+        &:hover {
+            color: #9D9D9D;
+        }
+    }
+}
