@@ -26,8 +26,9 @@ function GroupContent() {
     const [userName, setUserName] = useState("토깽이");
     const [userLocation, setUserLocation] = useState("성북구 종암동");
     const [isHeartFilled, setIsHeartFilled] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
+
     //const [title, setTitle] = useState("");
-    const [isJoined, setIsJoined] = useState(false);
 
     const handleCopyOpen = () => {
         navigator.clipboard.writeText(open);
@@ -47,7 +48,7 @@ function GroupContent() {
     };
 
     const handleJoinClick = () => {
-        setIsJoined(true);
+        setIsClicked((prev) => !prev);
     };
 
     return (   
@@ -135,9 +136,12 @@ function GroupContent() {
             </div>
         </div>
         <div className={styles.button}>
-        <button className={`${styles.joinButton}`} onClick={handleJoinClick}>
-            참여하기
-        </button>
+            <button
+                className={`${styles.joinButton} ${isClicked ? styles.clickedButton : ""}`}
+                onClick={handleJoinClick}
+            >
+                참여하기
+            </button>
         </div>
         <br /><br/><br/>
     </div>
