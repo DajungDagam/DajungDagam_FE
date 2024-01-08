@@ -19,7 +19,7 @@
     width: 150px;
 }
 
-.open, .period, .description, .location, .state, .profile {
+.open, .period, .description, .location, .state, .profile, .people, .price {
     margin-top: 26px;
     margin-bottom: 30px;
     transform: translate(37%, 10%);
@@ -149,4 +149,21 @@
 
 .filledHeart {
     color: #e74c3c; 
+}
+
+.button {
+    margin-top: 56px;
+    margin-bottom: 30px;
+    transform: translate(36.5%, 10%);
+}
+
+.joinButton {
+    background-color: #ee355f;
+    color: #fff;
+    padding: 12px 210px;
+    /* width: 200px; */
+    border-radius: 50px;
+    font-size: 18px;
+    border: #ee355f;
+    cursor: pointer;
 }
