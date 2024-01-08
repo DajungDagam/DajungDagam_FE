@@ -26,6 +26,7 @@ function GroupWriting() {
     const [selectedGu, setSelectedGu] = useState(allGus[0]);
     const [selectedDong, setSelectedDong] = useState("");
     const [openChatLink, setOpenChatLink] = useState('');
+    const [selectedPeople, setSelectedPeople] = useState(1);
 
     const navigate = useNavigate();
 
@@ -288,6 +289,11 @@ function GroupWriting() {
             }
         };
 
+    const handlePeopleChange = (e) => {
+        const selectedPeopleValue = parseInt(e.target.value, 10);
+        setSelectedPeople(selectedPeopleValue);
+    };
+
     return (   
         <div className={Styles.pageContainer}>
             <Nav />
@@ -393,6 +399,23 @@ function GroupWriting() {
                 </tbody>
             </table>
         </div>
+        <div className={Styles.people}>
+            <span className={Styles.label}>모집 인원</span>
+            <div className={Styles.peopleSelector}>
+            <select
+                id="peopleSelect"
+                value={selectedPeople}
+                onChange={handlePeopleChange}
+                className={Styles.selectBar}
+            >
+            <option value="" disabled>최대 30명까지 선택 가능합니다</option>
+                {[...Array(30)].map((_, index) => (
+                    <option key={index + 1} value={index + 1}>{index + 1}명</option>
+                ))}
+            </select>
+        </div>
+
+            </div>
             <div className={Styles.period}>
                 <span className={Styles.label}>모집 기간</span>
                 <div className={Styles.recruitment}>
