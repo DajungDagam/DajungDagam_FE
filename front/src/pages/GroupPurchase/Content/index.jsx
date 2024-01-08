@@ -18,14 +18,16 @@ function GroupContent() {
     const [open, setOpen] = useState("https://example.com");  
     const [period, setPeriod] = useState("");
     const [description, setDescription] = useState("");
+    const [people, setPeople] = useState("");
+    const [price, setPrice] = useState("");
     const [location, setLocation] = useState("");
     const [state, setState] = useState("");
     const [profileImage, setProfileImage] = useState("profile.png");
     const [userName, setUserName] = useState("토깽이");
     const [userLocation, setUserLocation] = useState("성북구 종암동");
     const [isHeartFilled, setIsHeartFilled] = useState(false);
-
     //const [title, setTitle] = useState("");
+    const [isJoined, setIsJoined] = useState(false);
 
     const handleCopyOpen = () => {
         navigator.clipboard.writeText(open);
@@ -42,6 +44,10 @@ function GroupContent() {
     
     const handleHeartClick = () => {
         setIsHeartFilled((prev) => !prev);
+    };
+
+    const handleJoinClick = () => {
+        setIsJoined(true);
     };
 
     return (   
@@ -93,6 +99,18 @@ function GroupContent() {
                 <Text value={period} onChange={(value) => setPeriod(value)} />
             </div>
         </div>
+        <div className={styles.people}>
+            <div className={styles.labelContainer}>
+                <span className={styles.label}>모집인원</span>
+                <Text value={people} onChange={(value) => setPeople(value)} />
+            </div>
+        </div>
+        <div className={styles.price}>
+            <div className={styles.labelContainer}>
+                <span className={styles.label}>가격/인당 가격</span>
+                <Text value={price} onChange={(value) => setPrice(value)} />
+            </div>
+        </div>
         <div className={styles.description}>
             <div className={styles.labelContainer}>
                 <span className={styles.label}>상품 설명</span>
@@ -116,6 +134,12 @@ function GroupContent() {
                 <Text value={state} onChange={(value) => setState(value)} />
             </div>
         </div>
+        <div className={styles.button}>
+        <button className={`${styles.joinButton}`} onClick={handleJoinClick}>
+            참여하기
+        </button>
+        </div>
+        <br /><br/><br/>
     </div>
     );
 }
