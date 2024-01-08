@@ -12,6 +12,7 @@ import Login from "./pages/Login/Main";
 import NickName from "./pages/Login/NickName";
 import Addr from "./pages/Login/Addr";
 import Start from "./pages/Login/Start";
+import MyPage from "./pages/MyPage";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/loginnickname" element={<NickName/>} />
         <Route path="/loginaddr" element={<Addr/>} />
         <Route path="/loginstart" element={<Start/>} />
+        <Route path="/mypage" element={<MyPage/>} />
 
       </Routes>
     </Router>
