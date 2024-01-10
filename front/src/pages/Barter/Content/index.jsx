@@ -5,6 +5,10 @@ import { FaRegCopy } from "react-icons/fa6";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
+import { FaRegEdit } from "react-icons/fa";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import Text from '../../../components/Text';
 import styles from "./Content.module.css";
 
@@ -16,6 +20,11 @@ function BarterContent() {
     const [description, setDescription] = useState("");
     const [location, setLocation] = useState("");
     const [state, setState] = useState("");
+    const [profileImage, setProfileImage] = useState("profile.png");
+    const [userName, setUserName] = useState("토깽이");
+    const [userLocation, setUserLocation] = useState("성북구 종암동");
+    const [isHeartFilled, setIsHeartFilled] = useState(false);
+
     //const [title, setTitle] = useState("");
 
     const handleCopyOpen = () => {
@@ -29,6 +38,10 @@ function BarterContent() {
 
     const handleNextClick = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % gallery.length);
+    };
+    
+    const handleHeartClick = () => {
+        setIsHeartFilled((prev) => !prev);
     };
 
     return (   
@@ -45,7 +58,28 @@ function BarterContent() {
                 <IoIosArrowForward onClick={handleNextClick} className={styles.arrowIcon} />
             </div>
         </div>
-        <div className={styles.profile}></div>
+        <div className={styles.profile}>
+            <CgProfile className={styles.profileimg} />
+            <div className={styles.profileInfo}>
+                <span className={styles.userName}>{userName}</span>
+                <span className={styles.userLocation}>{userLocation}</span>
+            </div>
+            <div className={styles.profileActions}>
+                <FaRegEdit className={styles.editIcon} />
+                <RiDeleteBin6Line className={styles.deleteIcon} />
+                {isHeartFilled ? (
+                <FaHeart
+                    className={`${styles.heartIcon} ${styles.filledHeart}`}
+                    onClick={handleHeartClick}
+                />
+                ) : (
+                <FaRegHeart
+                    className={`${styles.heartIcon}`}
+                    onClick={handleHeartClick}
+                />
+            )}
+            </div>
+        </div>
         <div className={styles.open}>
             <div className={styles.labelContainer}>
                 <span className={styles.label}>오픈채팅 링크</span>

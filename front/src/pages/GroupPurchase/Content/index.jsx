@@ -5,6 +5,10 @@ import { FaRegCopy } from "react-icons/fa6";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
+import { FaRegEdit } from "react-icons/fa";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import Text from '../../../components/Text';
 import styles from "./Content.module.css";
 
@@ -14,8 +18,16 @@ function GroupContent() {
     const [open, setOpen] = useState("https://example.com");  
     const [period, setPeriod] = useState("");
     const [description, setDescription] = useState("");
+    const [people, setPeople] = useState("");
+    const [price, setPrice] = useState("");
     const [location, setLocation] = useState("");
     const [state, setState] = useState("");
+    const [profileImage, setProfileImage] = useState("profile.png");
+    const [userName, setUserName] = useState("토깽이");
+    const [userLocation, setUserLocation] = useState("성북구 종암동");
+    const [isHeartFilled, setIsHeartFilled] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
+
     //const [title, setTitle] = useState("");
 
     const handleCopyOpen = () => {
@@ -29,6 +41,14 @@ function GroupContent() {
 
     const handleNextClick = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % gallery.length);
+    };
+    
+    const handleHeartClick = () => {
+        setIsHeartFilled((prev) => !prev);
+    };
+
+    const handleJoinClick = () => {
+        setIsClicked((prev) => !prev);
     };
 
     return (   
@@ -45,7 +65,28 @@ function GroupContent() {
                 <IoIosArrowForward onClick={handleNextClick} className={styles.arrowIcon} />
             </div>
         </div>
-        <div className={styles.profile}></div>
+        <div className={styles.profile}>
+            <CgProfile className={styles.profileimg} />
+            <div className={styles.profileInfo}>
+                <span className={styles.userName}>{userName}</span>
+                <span className={styles.userLocation}>{userLocation}</span>
+            </div>
+            <div className={styles.profileActions}>
+                <FaRegEdit className={styles.editIcon} />
+                <RiDeleteBin6Line className={styles.deleteIcon} />
+                {isHeartFilled ? (
+                <FaHeart
+                    className={`${styles.heartIcon} ${styles.filledHeart}`}
+                    onClick={handleHeartClick}
+                />
+                ) : (
+                <FaRegHeart
+                    className={`${styles.heartIcon}`}
+                    onClick={handleHeartClick}
+                />
+            )}
+            </div>
+        </div>        
         <div className={styles.open}>
             <div className={styles.labelContainer}>
                 <span className={styles.label}>오픈채팅 링크</span>
@@ -57,6 +98,18 @@ function GroupContent() {
             <div className={styles.labelContainer}>
                 <span className={styles.label}>시작일~마감일</span>
                 <Text value={period} onChange={(value) => setPeriod(value)} />
+            </div>
+        </div>
+        <div className={styles.people}>
+            <div className={styles.labelContainer}>
+                <span className={styles.label}>모집인원</span>
+                <Text value={people} onChange={(value) => setPeople(value)} />
+            </div>
+        </div>
+        <div className={styles.price}>
+            <div className={styles.labelContainer}>
+                <span className={styles.label}>가격/인당 가격</span>
+                <Text value={price} onChange={(value) => setPrice(value)} />
             </div>
         </div>
         <div className={styles.description}>
@@ -82,6 +135,15 @@ function GroupContent() {
                 <Text value={state} onChange={(value) => setState(value)} />
             </div>
         </div>
+        <div className={styles.button}>
+            <button
+                className={`${styles.joinButton} ${isClicked ? styles.clickedButton : ""}`}
+                onClick={handleJoinClick}
+            >
+                참여하기
+            </button>
+        </div>
+        <br /><br/><br/>
     </div>
     );
 }

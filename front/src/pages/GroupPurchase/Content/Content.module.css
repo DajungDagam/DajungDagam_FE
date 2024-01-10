@@ -19,7 +19,7 @@
     width: 150px;
 }
 
-.open, .period, .description, .location, .state {
+.open, .period, .description, .location, .state, .profile, .people, .price {
     margin-top: 26px;
     margin-bottom: 30px;
     transform: translate(37%, 10%);
@@ -89,4 +89,85 @@
             color: #9D9D9D;
         }
     }
+}
+
+.profileinfo {
+    display: flex;
+}
+
+.profileimg {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.userName {
+    color: #4A362B;
+    font-size: 18px;
+}
+
+.userLocation {
+    color: #4A362B;
+    font-size: 18px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profileInfo {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10%; 
+}
+
+.userName {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.userLocation {
+    font-size: 16px;
+    color: #666;
+}
+
+.profileActions {
+    display: flex;
+    align-items: center;
+}
+
+.editIcon,
+.deleteIcon,
+.heartIcon {
+    margin-left: 12px; 
+    font-size: 25px; 
+    cursor: pointer;
+}
+
+.filledHeart {
+    color: #e74c3c; 
+}
+
+.button {
+    margin-top: 56px;
+    margin-bottom: 30px;
+    transform: translate(36.5%, 10%);
+}
+
+.joinButton {
+    background-color: #9D9D9D;
+    color: #fff;
+    padding: 12px 210px;
+    border-radius: 50px;
+    font-size: 18px;
+    border: #9D9D9D;
+    cursor: pointer;
+}
+
+.clickedButton {
+    background-color: #EE355F; 
+    border: #EE355F; 
 }
