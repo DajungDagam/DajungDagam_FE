@@ -1,0 +1,83 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    color: #000;
+  }
+  
+  .header {
+    width: 1300px;
+    margin: auto;
+    display: flex;
+    height: 60px;
+    background-color: white;
+    border-bottom: 2px solid #8C8C8C;
+  }
+  
+  .searchArea {
+    width: 300px;
+    height: 40px;
+    background: white;
+    border-radius: 30px;
+    margin-top: 10px;
+    margin-right: 30px;
+    border: 2px solid #8C8C8C;
+    display: flex; /* Flex 컨테이너로 설정 */
+    justify-content: center; /* 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+  }
+  
+  .searchArea > form > input {
+    border: none;
+    width: 250px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.0);
+    color: #8C8C8C;
+    padding-left: 10px;
+   
+  }
+  
+  .searchArea > form > span {
+    width: 60px;
+    color: #8C8C8C;
+   
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: flex-start;
+    width: calc(1300px - 300px);
+    line-height: 60px;
+  }
+  
+  .nav > li {
+    margin-left: 100px;
+  }
+  
+  .nav > li > a {
+    color: #8C8C8C;
+    position: relative;
+    transition: color 0.3s, font-weight 0.3s;
+  }
+  
+  .nav > li:hover > a {
+    color: #EE355F;
+    font-weight: bold;
+  }
+  
+  .nav > li > a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #EE355F;;
+    transition: width 0.3s;
+  }
+  
+  .nav > li:hover > a::after {
+    width: 100%;
+  }
+  
