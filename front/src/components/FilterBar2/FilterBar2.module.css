@@ -1,0 +1,44 @@
+.header {
+    width: 1300px;
+    margin: auto;
+    display: flex;
+    height: 60px;
+    background-color: white;
+    border-bottom: 2px solid #8C8C8C;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: flex-start;
+    width: calc(1300px - 300px);
+    line-height: 60px;
+  }
+  
+  .nav li {
+    margin-left: 100px;
+  }
+  
+  .nav li a {
+    color: #8C8C8C;
+    position: relative;
+    transition: color 0.3s, font-weight 0.3s;
+  }
+  
+  .nav li:hover a {
+    color: #EE355F;
+    font-weight: bold;
+  }
+  
+  .nav li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #EE355F;
+    transition: width 0.3s;
+  }
+  
+  .nav li:hover a::after {
+    width: 100%;
+  }
+  
