@@ -5,6 +5,7 @@ import Footer from '../../components/Footer';
 import CardList from '../../components/CardList';
 import CardList2 from '../../components/CardList2';
 import FilterBar1 from '../../components/FilterBar1';
+
 import { Link } from 'react-router-dom';
 
 const UserProfileCard = () => {
@@ -17,6 +18,7 @@ const UserProfileCard = () => {
       <Footer />
     </div>
   );
+
 };
 
 export default UserProfileCard;

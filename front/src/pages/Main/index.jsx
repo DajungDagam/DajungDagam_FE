@@ -1,5 +1,3 @@
-// MainPage.jsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Nav2 from '../../components/Nav2';
@@ -9,7 +7,6 @@ import rabbit1Image from "../../assets/rabbit1.png";
 import rabbit2Image from "../../assets/rabbit2.png";
 import rabbit3Image from "../../assets/rabbit3.png";
 import rabbit4Image from "../../assets/rabbit4.png";
-
 
 const MainPage = () => {
   return (
