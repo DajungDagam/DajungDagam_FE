@@ -7,7 +7,8 @@ const Nav = props => {
 return (
     <div className={props.style}>
         <div className={classes.navHeader}>
-            <div className={classes.logo}>다정다감</div>
+            <div className={classes.logo}>
+            <Link to="/">다정다감</Link></div>
             <div className={classes.menu}>
                     <Link to="/bartermain"><span>물물교환</span></Link>
                     <Link to="/groupmain"><span>공동구매</span></Link>

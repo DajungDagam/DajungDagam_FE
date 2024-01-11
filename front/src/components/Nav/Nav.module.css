@@ -40,7 +40,7 @@ body {
     cursor: pointer;
 } 
 
-.menu a, .menu2 a {
+.logo a, .menu a, .menu2 a {
     text-decoration: none;
     color: inherit;
 }
