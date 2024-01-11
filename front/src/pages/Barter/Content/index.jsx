@@ -116,6 +116,7 @@ function BarterContent() {
                 <Text value={state} onChange={(value) => setState(value)} />
             </div>
         </div>
+        <br/><br/>
     </div>
     );
 }
