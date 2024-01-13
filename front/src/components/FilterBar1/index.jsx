@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './FilterBar1.module.css';
-import Button2 from "../../components/Button2";
 
 const NavigationBar = () => {
   const allGus = [
