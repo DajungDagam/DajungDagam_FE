@@ -6,19 +6,26 @@ import CardList from '../../components/CardList';
 import CardList2 from '../../components/CardList2';
 import FilterBar2 from '../../components/FilterBar2';
 
-import { Link } from 'react-router-dom';
-
 const UserProfileCard = () => {
+  const containerStyle = { marginBottom: '20px' };
+
   return (
-    <div className={style.userProfileContainer}>
-      <Nav2 />
-      <CardList />
-      <FilterBar2 />
-      <CardList2 />
+    <div className={style.userProfileContainer} style={containerStyle}>
+      <div style={containerStyle}>
+        <Nav2 />
+      </div>
+      <div style={containerStyle}>
+        <CardList />
+      </div>
+      <div style={containerStyle}>
+        <FilterBar2 />
+      </div>
+      <div style={containerStyle}>
+        <CardList2 />
+      </div>
       <Footer />
     </div>
   );
-
 };
 
 export default UserProfileCard;
