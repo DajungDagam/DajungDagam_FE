@@ -1,7 +1,11 @@
+import { setCookie } from "../cookie/cookieConfig";
 import { kakaoLogin } from "./AuthenticationService";
 
 const { useEffect } = require("react");
 const { useNavigate } = require("react-router-dom");
+
+
+
 
 const OAuth2RedirectHandler = (props) => {
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
@@ -9,6 +13,9 @@ const OAuth2RedirectHandler = (props) => {
     let params = new URL(document.URL).searchParams;
     let code = params.get('code');
     let navigate = useNavigate();
+    
+
+    
 
     console.log("code: " + code);
 
@@ -19,13 +26,28 @@ const OAuth2RedirectHandler = (props) => {
                     .then((response) => {
                         console.log('kakaoLogin');
                         console.log(response);
-                        console.log(response.data.data.token);
+                    
+                        setCookie("token", `${response.data.jwtToken}`, {
+                            path: "/",
+                            
+                        });
+                        setCookie("userId", `${response.data.user.id}`, {
+                            path: "/",
+                            
+                        });
+                        setCookie("kakaoName", `${response.data.user.kakaoName}`, {
+                            path: "/",
+                            
+                        });
                         //AuthenticationService.registerSuccessfulLoginForJwt(response.data.data.userName, response.data.data.token);
+                        
+
+
                     })
                     .catch((error) => {
                         console.log('kakaoLogin Failed');
                     });
-                    navigate('/');
+                    navigate('/loginnickname');
                 }
                 login();
             }, []    
