@@ -4,7 +4,6 @@ import Button2 from '../../../components/Button2';
 import { setNickNameAtBack } from "../../../api/apiTester";
 
 // 입력한 별명 서버로 보냄
-
 function sendNickName(nickName) {
     setNickNameAtBack(nickName);
 }

@@ -6,7 +6,8 @@ const { useNavigate } = require("react-router-dom");
 
 
 
-
+// 백에게 유효한 회원인지 검사하는 동안 잠시 있는 페이지
+// 만약 유효한 회원이면, 쿠키에 유저 정보와 token을 저장
 const OAuth2RedirectHandler = (props) => {
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
     
@@ -41,13 +42,15 @@ const OAuth2RedirectHandler = (props) => {
                         });
                         //AuthenticationService.registerSuccessfulLoginForJwt(response.data.data.userName, response.data.data.token);
                         
-
+                        // 새로 가입한 유저면 /loginnickname으로 이동
+                        if(`${response.data.newUser}` == true)
+                            navigate('/loginnickname');
 
                     })
                     .catch((error) => {
                         console.log('kakaoLogin Failed');
                     });
-                    navigate('/loginnickname');
+                    navigate('/');
                 }
                 login();
             }, []    
