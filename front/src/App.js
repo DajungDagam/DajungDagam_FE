@@ -10,10 +10,11 @@ import GroupMain from "./pages/GroupPurchase/Main";
 import GroupContent from "./pages/GroupPurchase/Content";
 import RecommendMain from "./pages/Recommend/Main";
 import Login from "./pages/Login/Main";
-import NickName from "./pages/Login/NickName";
+import NickName from "./pages/Login/NickName"; 
 import Addr from "./pages/Login/Addr";
 import Start from "./pages/Login/Start";
 import MyPage from "./pages/MyPage";
+import OAuth2RedirectHandler from './api/OAuth2RedirectHandeler';
 
 function App() {
   return (
@@ -34,9 +35,11 @@ function App() {
         <Route path="/loginstart" element={<Start/>} />
         <Route path="/mypage" element={<MyPage/>} />
 
+        <Route path="/oauth/callback/kakao" element={<OAuth2RedirectHandler/>} />
+
       </Routes>
     </Router>
   )
-}
+} 
 
 export default App;

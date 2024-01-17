@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Addr.module.css";
 import Button2 from "../../../components/Button2";
+import { setAddrAtBack } from "../../../api/apiTester";
 
 const Addr = () => {
 const allGus = [
@@ -61,7 +62,10 @@ return (
     <div className={styles.div3}>
     <Button2 label="이전" to="/loginnickname" />
     <Button2 label="다음" to="/loginstart" />
-    </div>
+
+    <button onClick={setAddrAtBack(selectedGu, selectedDong)}>[임시] 사는 곳 전송하는 버튼</button>
+
+    </div> 
 </div>
 );
 };

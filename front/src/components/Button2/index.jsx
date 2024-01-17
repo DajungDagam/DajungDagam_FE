@@ -6,6 +6,7 @@ const Button2 = ({ to, label }) => {
     const navigate = useNavigate();
 
     const handleButtonClick = () => {
+        
         navigate(to); // 클릭 시 페이지 이동
     };
 
