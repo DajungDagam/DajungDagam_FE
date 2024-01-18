@@ -2,6 +2,21 @@ import axios from "axios";
 import { getCookie } from "../cookie/cookieConfig";
 import { useCallback } from "react";
 
+//getUserInfo 수정해야함
+export const getUserInfo = () => {
+  // 가상의 더미 데이터
+  const dummyUserInfo = {
+    userId: '123456',
+    username: 'john_doe',
+    email: 'john@example.com',
+    // 기타 필요한 사용자 정보
+  };
+
+  // 더미 데이터 반환
+  return dummyUserInfo;
+};
+//수정 필요..!!!!
+
 // 쿠키에서 가져오기
 const token = getCookie("token");
 const userId = getCookie("userId");
@@ -37,7 +52,6 @@ const writeConfig = {
   "Content-Type": 'multipart/form-data',
   "Authorization": `Bearer ${token}`
 };
-
 
 // 백으로 입력한 닉네임 전송
 export const setNickNameAtBack = function(nickName) {

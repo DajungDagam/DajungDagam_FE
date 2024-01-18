@@ -14,6 +14,9 @@ return (
                     <Link to="/groupmain"><span>공동구매</span></Link>
                     <Link to="/recommendmain"><span>추천서비스</span></Link>
             </div>
+            <div className={classes.menu2}>
+                    <Link to="/login"><span>로그인</span></Link>
+                </div>
         </div>
     </div>
 );

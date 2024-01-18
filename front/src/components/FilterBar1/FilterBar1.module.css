@@ -79,13 +79,83 @@
     width: 100%;
   }
   
-  .select {
-    padding: 10px; /* 원하는 패딩 값으로 조정 */
-    font-size: 16px; /* 원하는 글자 크기로 조정 */
-    border: none; /* 테두리 없애기 */
-    border-radius: 5px; /* 선택상자 주변의 모서리를 둥글게 만들기 (선택사항) */
+  .selectWrapper {
+    position: relative;
   }
 
-  .select:hover {
-    background-color: #EE355F;
-  }
+.select {
+  padding: 10px; /* 원하는 패딩 값으로 조정 */
+  font-size: 16px; /* 원하는 글자 크기로 조정 */
+  border: none; /* 테두리 없애기 */
+  border-radius: 5px; /* 선택상자 주변의 모서리를 둥글게 만들기 (선택사항) */
+  color: #8C8C8C; /* 기본 글자색 지정 */
+  position: relative; /* 위치 지정을 위해 상대적(relative) 위치 설정 */
+  transition: color 0.3s; /* 글자색 변화에 트랜지션 추가 */
+}
+
+
+.selectWrapper::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%; /* Set the dropdown below the select box */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent; /* Initially transparent */
+  transition: background-color 0.3s; /* Transition for the background-color property */
+}
+
+.selectWrapper:hover::after {
+  background-color: #EE355F; /* Show the pink line on hover */
+}
+
+.select:hover {
+  color: #EE355F; /* 호버 시 글자색을 진한 핑크로 변경 */
+}
+
+/* nav 바의 하단에 진한 핑크색 선 추가 */
+.nav {
+  position: relative; /* 하위 요소의 위치 지정을 위해 상대적(relative) 위치 설정 */
+}
+
+.nav::after {
+  content: '';
+  display: block;
+  position: absolute; /* 절대 위치 지정 */
+  bottom: 0; /* nav 바의 하단에 위치 */
+  left: 0; /* 왼쪽 정렬 */
+  width: 0;
+  height: 2px;
+  background-color: #EE355F;
+  transition: width 0.3s; /* 선의 길이 변화에 트랜지션 추가 */
+}
+
+/* 선택한 카테고리에 대한 스타일 */
+.nav > li:hover::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: auto; /* Set width to auto to dynamically adjust based on content */
+  height: 2px;
+  background-color: #EE355F;
+  transition: width 0.3s;
+}
+
+/* 하위 메뉴에 대한 스타일 */
+.nav > li > ul {
+  display: none; /* 기본적으로 하위 메뉴는 숨김 */
+  position: absolute;
+  top: 100%; /* 선택한 카테고리 아래에 위치 */
+  left: 0;
+}
+
+.nav > li:hover > ul {
+  display: block; /* 호버 시 하위 메뉴 표시 */
+}
+
+.nav > li:hover > ul::after {
+  display: none; /* 하위 메뉴에는 선을 표시하지 않음 */
+}

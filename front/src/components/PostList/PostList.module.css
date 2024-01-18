@@ -42,7 +42,7 @@
   color: #fff;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  height:30px;
+  height:45px;
 }
 
 .header .user-info {
@@ -121,4 +121,43 @@
 
 .footer span:last-child {
   margin-right: 0; 
+}
+
+
+.like-view-container {
+  display: flex; /* 가로로 배치하기 위한 Flexbox 속성 추가 */
+  align-items: center; /* 아이템들을 수직 가운데 정렬 */
+}
+
+.like-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.like-button span {
+  margin-left: 5px; /* 하트 이모지와 텍스트 간격 조절 */
+  font-weight: bold;
+  color: #262626; /* 텍스트 색상 */
+}
+
+.like-button:hover {
+  animation: pulse 0.5s ease infinite; /* 호버 시 애니메이션 효과 추가 */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.view-count {
+  margin-left: 10px; /* 좋아요 버튼과 간격을 주기 위한 마진 추가 */
+  /* 다른 스타일들 ... */
 }
