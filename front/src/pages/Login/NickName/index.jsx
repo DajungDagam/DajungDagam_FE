@@ -1,6 +1,12 @@
 import { useState } from "react";
 import styles from "./NickName.module.css";
 import Button2 from '../../../components/Button2';
+import { setNickNameAtBack } from "../../../api/apiTester";
+
+// 입력한 별명 서버로 보냄
+function sendNickName(nickName) {
+    setNickNameAtBack(nickName);
+}
 
 const NickName = () => {
     const [nickname, setNickname] = useState(""); // 닉네임을 저장할 상태 추가
@@ -24,6 +30,9 @@ const NickName = () => {
             <div className={styles.div3}>
             <Button2 label="이전" to="/login" />
             <Button2 label="다음" to="/loginaddr" />
+
+            
+            <button onClick={() => sendNickName(nickname)}>닉네임 정보 전송</button>
             </div>
     </div>
     );

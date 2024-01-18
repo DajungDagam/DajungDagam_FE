@@ -8,6 +8,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { FaRegCopy } from "react-icons/fa6";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { sendTradePost } from '../../../api/apiTester';
 
 function BarterWriting() {
     const allGus = [
@@ -41,6 +42,8 @@ function BarterWriting() {
     };
 
     const handleWritingComplete = () => {
+        sendTradePost(uploadedImages, title, productDescription, recruitmentPeriod, showCalendar, selectedGu, selectedDong, openChatLink);
+
         navigate('/bartercontent', { from: 'BarterWriting' });
     };
 
@@ -62,6 +65,7 @@ function BarterWriting() {
     
                         // 선택한 이미지를 현재 표시 이미지로 설정
                         setSelectedImage(originalImageUrl);
+                        console.log(selectedImage);
                     };
                 };
     
