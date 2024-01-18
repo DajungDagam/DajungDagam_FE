@@ -64,21 +64,23 @@ export const setAddrAtBack = function(gu_name, dong_name) {
 
 // 백으로 교환 글 정보 보내기
 export const sendTradePost = async (uploadedImages, title, productDescription,
-   recruitmentPeriod, showCalendar, selectedGu, selectedDong, openChatLink) => {
+   recruitmentPeriod, showCalendar, selectedGu, selectedDong, openChatLink, selectedCategory) => {
   
     const formData = new FormData();
     await formData.append('images', uploadedImages);
     let postDto = {
-      
       'title': title,
-      'area': 10,            
+      'guName': selectedGu,
+      'dongName': selectedDong,            
       'content' : productDescription,
       'chatLink' : openChatLink,
       'postType' : 1,
-      'itemCategorys' : 2
+      'categoryName' : selectedCategory,
+      'deadline' : recruitmentPeriod
+      // 날짜 형식
     };
-    const postDtoString = JSON.stringify(postDto);
-    await formData.append('postDto', new Blob([postDtoString], {type: 'application/json'}));
+    const postWriteDtoString = JSON.stringify(postDto);
+    await formData.append('postWriteDto', new Blob([postWriteDtoString], {type: 'application/json'}));
 
     apiClient.post(
       "/trade/posts",

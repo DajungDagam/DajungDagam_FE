@@ -42,7 +42,7 @@ function BarterWriting() {
     };
 
     const handleWritingComplete = () => {
-        sendTradePost(uploadedImages, title, productDescription, recruitmentPeriod, showCalendar, selectedGu, selectedDong, openChatLink);
+        sendTradePost(uploadedImages, title, productDescription, recruitmentPeriod, showCalendar, selectedGu, selectedDong, openChatLink, selectedCategory);
 
         navigate('/bartercontent', { from: 'BarterWriting' });
     };
@@ -89,12 +89,23 @@ function BarterWriting() {
     };
 
     const categories = [
-        '미개봉 가공음식',
-        '가전용품',
-        '도서',
-        '생필품',
-        '옷',
-        '기타',
+        '디지털기기',
+    '가구/인테리어',
+    '여성의류',
+    '여성잡화',
+    '남성의류',
+    '남성잡화',
+    '생활가전',
+    '생활/주방',
+    '가공식품',
+    '스포츠/레저',
+    '취미/게임/음반',
+    '뷰티/미용',
+    '식물',
+    '반려동물용품',
+    '티켓/교환권',
+    '도서',
+    '기타 물품'
     ];
     
     const [selectedCategory, setSelectedCategory] = useState('');

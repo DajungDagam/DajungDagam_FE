@@ -1,11 +1,9 @@
 import React from 'react';
 import styles from "./CardList.module.css"; 
-import { getUserInfo } from '../../api/apiTester';
 
-const userInfo = getUserInfo();
 
 const UserProfileCard = () => {
-  console.log(userInfo);
+  
 
   return (
     <div className={styles.profileContainer}>

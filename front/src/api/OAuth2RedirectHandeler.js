@@ -56,8 +56,6 @@ const OAuth2RedirectHandler = (props) => {
             }, []    
         );
             
-        
-        
             
     return (
         
