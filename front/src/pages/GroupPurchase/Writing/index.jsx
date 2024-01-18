@@ -8,6 +8,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { FaRegCopy } from "react-icons/fa6";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { sendTradePost } from '../../../api/apiTester';
 
 function GroupWriting() {
     const allGus = [
@@ -43,6 +44,8 @@ function GroupWriting() {
     };
 
     const handleWritingComplete = () => {
+        // 백으로 글 정보 보내기
+       
         navigate('/groupcontent', { from: 'GroupWriting' });
     };
 
