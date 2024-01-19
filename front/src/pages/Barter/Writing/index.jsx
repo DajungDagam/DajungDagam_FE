@@ -12,6 +12,8 @@ import { sendTradePost } from '../../../api/apiTester';
 import moment from 'moment';
 
 function BarterWriting() {
+    const navigate = useNavigate();
+
     const allGus = [
         "강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구",
         "노원구", "동대문구", "도봉구", "동작구", "마포구", "서대문구", "성동구", "성북구",
@@ -28,7 +30,6 @@ function BarterWriting() {
     const [showCalendar, setShowCalendar] = useState(false);
     const [openChatLink, setOpenChatLink] = useState('');
 
-    const navigate = useNavigate();
 
     const handleRecruitmentPeriodChange = (event) => {
         setRecruitmentPeriod(event.target.value);
@@ -42,12 +43,25 @@ function BarterWriting() {
     setProductDescription(event.target.value);
     };
 
-    const handleWritingComplete = () => {
-        sendTradePost(uploadedImages, title, productDescription, recruitmentPeriod, showCalendar, selectedGu, selectedDong, openChatLink, selectedCategory);
-
-        navigate('/bartercontent', { from: 'BarterWriting' });
+    const handleWritingComplete = async () => {
+        const dataToBeSent = {
+            selectedImage: selectedImage,
+            title: title,
+            productDescription: productDescription,
+            recruitmentPeriod: recruitmentPeriod,
+            selectedGu: selectedGu,
+            selectedDong: selectedDong,
+            openChatLink: openChatLink,
+            selectedCategory: selectedCategory,
+        };
+    
+        console.log('Data to be sent:', dataToBeSent);
+    
+        await navigate("/bartercontent", {
+            state: { ...dataToBeSent, selectedImage },
+        });
     };
-
+    
     const handlePhotoChange = async (event) => {
         const file = event.target.files[0];
     
@@ -60,13 +74,13 @@ function BarterWriting() {
     
                     img.onload = () => {
                         const originalImageUrl = reader.result;
-    
+                        const fileName = file.name;
+
                         // 업로드된 이미지 배열에 추가
                         setUploadedImages([...uploadedImages, originalImageUrl]);
     
                         // 선택한 이미지를 현재 표시 이미지로 설정
-                        setSelectedImage(originalImageUrl);
-                        console.log(selectedImage);
+                        setSelectedImage({ name: fileName });
                     };
                 };
     
@@ -91,22 +105,22 @@ function BarterWriting() {
 
     const categories = [
         '디지털기기',
-    '가구/인테리어',
-    '여성의류',
-    '여성잡화',
-    '남성의류',
-    '남성잡화',
-    '생활가전',
-    '생활/주방',
-    '가공식품',
-    '스포츠/레저',
-    '취미/게임/음반',
-    '뷰티/미용',
-    '식물',
-    '반려동물용품',
-    '티켓/교환권',
-    '도서',
-    '기타 물품'
+        '가구/인테리어',
+        '여성의류',
+        '여성잡화',
+        '남성의류',
+        '남성잡화',
+        '생활가전',
+        '생활/주방',
+        '가공식품',
+        '스포츠/레저',
+        '취미/게임/음반',
+        '뷰티/미용',
+        '식물',
+        '반려동물용품',
+        '티켓/교환권',
+        '도서',
+        '기타 물품'
     ];
     
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -413,7 +427,7 @@ function BarterWriting() {
 
                         {showCalendar && (
                         <Calendar onChange={(date) => setRecruitmentPeriod(moment(date).format('yyyy-MM-DD'))}  />
-                         )}
+                        )}
                 </div>
             </div>
             <div className={Styles.link}>
@@ -435,10 +449,10 @@ function BarterWriting() {
                 title="작성완료"
                 onClick={handleWritingComplete}
             />
-            <br /><br /><br /><br /><br />
+            <br /><br /><br /><br />
             </div>
         </div>
     );
 }
 
-export default BarterWriting;
+export default BarterWriting; 
