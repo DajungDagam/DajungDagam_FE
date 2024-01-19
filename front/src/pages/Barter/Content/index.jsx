@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Nav from '../../../components/Nav';
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { FaRegCopy } from "react-icons/fa6";
@@ -13,12 +14,15 @@ import Text from '../../../components/Text';
 import styles from "./Content.module.css";
 
 function BarterContent() {
+    const location = useLocation();
+    const navigate = useNavigate();
+    
     const [gallery, setGallery] = useState(["rabbit1.png", "rabbit2.png", "rabbit3.png", "girl.png"]);  
     const [currentIndex, setCurrentIndex] = useState(0);
     const [open, setOpen] = useState("https://example.com");  
     const [period, setPeriod] = useState("");
     const [description, setDescription] = useState("");
-    const [location, setLocation] = useState("");
+    const [dealLocation, setDealLocation] = useState("");
     const [state, setState] = useState("");
     const [profileImage, setProfileImage] = useState("profile.png");
     const [userName, setUserName] = useState("토깽이");
@@ -107,7 +111,7 @@ function BarterContent() {
         <div className={styles.location}>
             <div className={styles.labelContainer}>
                 <span className={styles.label}>거래 장소</span>
-                <Text value={location} onChange={(value) => setLocation(value)} />
+                <Text value={dealLocation} onChange={(value) => setDealLocation(value)} />
             </div>
         </div>
         <div className={styles.state}>
