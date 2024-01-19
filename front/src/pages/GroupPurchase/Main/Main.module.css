@@ -1,0 +1,109 @@
+/* Main.module.css */
+
+/* Global styles */
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Component-specific styles */
+  .main2Bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E1D3C6;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+  
+  .mainText1 {
+    text-align: left;
+    margin-right: 50px;
+  }
+  
+  .rabbit2 img {
+    max-width: 100%;
+    height: 400px;
+  }
+  
+  .mainHeading {
+    font-size: 54px;
+    color: #3C3C3C;
+    white-space: nowrap;
+    margin-bottom: 30px;
+  }
+  
+  .subHeading {
+    font-size: 20px;
+    color: #8C8C8C; 
+  }
+  
+  .surHeading {
+    font-size: 20px;
+    color: #4A362B;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+  /* 
+  .popularPostsHeading,
+  .postListSection,
+  .popularPostsHeading,
+  .postListGrid {
+    margin: 20px 0;
+  } */
+  
+  .postListSection,
+  .postListGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    margin: 0 auto; /* 중앙 정렬로 수정 */
+    max-width: 1200px; /* 최대 너비 설정 (필요에 따라 조절) */
+  }
+  
+  .popularPostsHeading,
+  .postListGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    margin: 0 auto; /* 중앙 정렬로 수정 */
+    max-width: 1200px; /* 최대 너비 설정 (필요에 따라 조절) */
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 중앙 정렬 */
+  }
+  
+  .popularPostsHeading,
+  .postListSection,
+  .popularPostsHeading,
+  .postListGrid {
+    margin-bottom: 50px; /* 필요에 따라 여백을 조절하세요 */
+    margin-top:50px;
+  
+  }
+  
+  .gridItem {
+    width: 100%;
+  }
+  
+  /* 기존 스타일들... */
+  
+  .paginationCenter {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* 원하는 여백 설정 */
+  }
+  

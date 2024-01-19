@@ -1,14 +1,16 @@
 // Card.js
 import React, { useState } from 'react';
-import styles from './PostList.module.css'; // 모듈 스타일을 불러옴
+import styles from './PostList2.module.css';
 
 const Card = () => {
-  // 좋아요 및 조회수 상태 관리
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   const [viewCount, setViewCount] = useState(0);
 
-  // 좋아요 클릭 시 처리
+  // 모집인원 및 현재 참여자 정보를 추가적으로 저장
+  const [recruitmentCount, setRecruitmentCount] = useState(10); // 초기 모집인원 설정
+  const [currentParticipants, setCurrentParticipants] = useState(5); // 초기 현재 참여자 수 설정
+
   const handleLikeClick = () => {
     if (!isLiked) {
       setLikeCount(likeCount + 1);
@@ -18,7 +20,6 @@ const Card = () => {
     setIsLiked(!isLiked);
   };
 
-  // 조회수 증가 처리 (예를 들면, 컴포넌트가 마운트 될 때 호출)
   const increaseViewCount = () => {
     setViewCount(viewCount + 1);
   };
@@ -28,6 +29,11 @@ const Card = () => {
       <div className={styles.header}>
         <div className={styles['status-button']}>
           <span>Status</span>
+        </div>
+        {/* 모집인원과 현재 참여자 수를 표시하는 부분 */}
+        <div className={styles['participant-info']}>
+          <span>{currentParticipants}명</span>
+          <span>/{recruitmentCount}명</span>
         </div>
       </div>
 
@@ -48,10 +54,9 @@ const Card = () => {
           <span>name</span>
         </div>
 
-        {/* 좋아요 및 조회수 표시 (가로로 배치) */}
         <div className={styles['like-view-container']}>
           <div className={styles['like-button']} onClick={handleLikeClick}>
-            {isLiked ? '❤️' : '🤍'} {/* 이모지로 좋아요 표시 */}
+            {isLiked ? '❤️' : '🤍'}
             <span>찜하기 {likeCount}</span>
           </div>
           <div className={styles['view-count']}>
