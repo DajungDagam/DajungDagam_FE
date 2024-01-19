@@ -13,6 +13,7 @@ function BarterMain() {
   const totalPage = 10; // 총 페이지 수
 
   const handlePageChange = (page) => {
+    
     // 페이지 변경 로직
     setCurrentPage(page);
   };

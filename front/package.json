@@ -21,7 +21,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:mac": "HTTPS=true SSL_CRT_FILE=cert/localhost.pem SSL_KEY_FILE=cert/localhost-key.pem npm run start",
     "start:windows": "set HTTPS=true&&set SSL_CRT_FILE=localhost.pem&&set SSL_KEY_FILE=localhost-key.pem&&npm run start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -47,7 +46,6 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3"
-  },
-  "proxy":"https://tave-dgdg.run.goorm.io"
+  }
   
 }

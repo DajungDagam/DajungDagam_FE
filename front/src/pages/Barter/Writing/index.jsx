@@ -9,6 +9,7 @@ import { FaRegCopy } from "react-icons/fa6";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { sendTradePost } from '../../../api/apiTester';
+import moment from 'moment';
 
 function BarterWriting() {
     const allGus = [
@@ -406,9 +407,13 @@ function BarterWriting() {
                         {recruitmentPeriod ? recruitmentPeriod : '캘린더에서 선택'}
                     </span>
                     <FaCalendarAlt onClick={toggleCalendar} />
-                    {showCalendar && (
-                        <Calendar onChange={(date) => setRecruitmentPeriod(date.toDateString())} />
-                    )}
+                    {/* {showCalendar && (
+                        <Calendar onChange={(date) => setRecruitmentPeriod(date.toDateString())}  />
+                    )} */}
+
+                        {showCalendar && (
+                        <Calendar onChange={(date) => setRecruitmentPeriod(moment(date).format('yyyy-MM-DD'))}  />
+                         )}
                 </div>
             </div>
             <div className={Styles.link}>
