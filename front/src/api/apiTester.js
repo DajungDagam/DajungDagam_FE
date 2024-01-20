@@ -1,8 +1,6 @@
 import axios from "axios";
 import { getCookie } from "../cookie/cookieConfig";
 import { useCallback } from "react";
-import { useNavigate } from 'react-router-dom';
-
 
 //getUserInfo 수정해야함
 export const getUserInfo = () => {
