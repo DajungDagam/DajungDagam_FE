@@ -9,9 +9,10 @@ const Button2 = ({ to, label, onClick }) => {
     const handleButtonClick = () => {
         if (onClick) {
             onClick(); // 클릭 시 onClick 함수 호출
-        } else {
-            navigate(to); // 클릭 시 페이지 이동
         }
+        
+        // 페이지 이동 처리
+        navigate(to);
     };
 
     return (
