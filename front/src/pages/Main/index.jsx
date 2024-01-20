@@ -1,17 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Nav2 from '../../components/Nav2';
+import Nav3 from '../../components/Nav3'; 
 import Footer from '../../components/Footer';
 import classes from './Main.module.css';
 import rabbit1Image from "../../assets/rabbit1.png";
 import rabbit2Image from "../../assets/rabbit2.png";
 import rabbit3Image from "../../assets/rabbit3.png";
 import rabbit4Image from "../../assets/rabbit4.png";
+import { getCookie, removeCookie } from '../../cookie/cookieConfig'
 
 const MainPage = () => {
+  const isLoggedIn = getCookie("userId") !== undefined;
+
+  const handleLogout = () => {
+    // 로그아웃 처리
+    removeCookie("userId");
+  };
+
   return (
     <div>
-        <Nav2 />
+      {isLoggedIn ? <Nav3 onLogout={handleLogout} /> : <Nav2 />}
       {/* 첫 번째 섹션 */}
       <div className={classes.introBg}>
         <div className={classes.mainText1}>

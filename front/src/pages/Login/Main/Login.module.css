@@ -7,6 +7,8 @@ overflow: hidden;
 text-align: center;
 font-size: 16px;
 font-family: 'Noto Sans KR', sans-serif;
+display: flex; /* 부모 요소를 flex로 설정 */
+align-items: center; /* 아이콘을 수직 가운데 정렬 */
 }
 
 .kakaoIcon {
@@ -22,6 +24,17 @@ font-family: 'Noto Sans KR', sans-serif;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
+.kakaoButton {
+    border: none; /* 테두리 제거 */
+    background: none; /* 배경 제거 */
+    padding: 0; /* 내부 여백 제거 */
+    cursor: pointer; /* 커서를 포인터로 변경 */
+    outline: none; /* 포커스 효과 제거 */
+    font-size: 24px; /* 아이콘 크기 조절 */
+    width: 100%; /* 부모의 너비를 꽉 채우기 */
+    height: 100%; /* 부모의 높이를 꽉 채우기 */
+  }
+  
 .kakaoIcon svg {
     height: 98%; 
     width: 60%;

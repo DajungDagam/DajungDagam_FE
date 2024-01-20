@@ -15,3 +15,4 @@ export const getCookie = (name) => {
 export const removeCookie = (name, option) => {
     return cookies.remove(name, { ...option });
 };
+

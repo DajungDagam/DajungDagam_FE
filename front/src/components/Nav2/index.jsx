@@ -1,4 +1,4 @@
-//글쓰기 없는 버젼
+//로그인(초기)
 import React from 'react';
 import { Link } from 'react-router-dom';
 import classes from "../Nav/Nav.module.css";
