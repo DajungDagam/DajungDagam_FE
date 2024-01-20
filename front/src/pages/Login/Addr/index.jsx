@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import styles from "./Addr.module.css";
 import Button2 from "../../../components/Button2";
 import { setAddrAtBack } from "../../../api/apiTester";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Addr = () => {
-    const {nickname} = useParams();
+    const { state } = useLocation();
+    const nickname = state ? state.sentNickname.nickname : "";    
 
     const allGus = [
     "강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구",
@@ -24,7 +25,11 @@ const Addr = () => {
     const handleDongChange = (e) => {
         const selectedDongValue = e.target.value;
         setSelectedDong(selectedDongValue);
-};
+    };
+
+    const sendAddress = () => {
+        setAddrAtBack(selectedGu, selectedDong);
+    };
 
 return (
 <div className={styles.div}>
@@ -64,8 +69,7 @@ return (
     </div>
     <div className={styles.div3}>
     <Button2 label="이전" to="/loginnickname" />
-    <Button2 label="다음" to="/loginstart" />
-    <button onClick={setAddrAtBack(selectedGu, selectedDong)}>[임시] 사는 곳 전송하는 버튼</button>
+    <Button2 label="다음" onClick={sendAddress} to="/loginstart" />    
     </div> 
 </div>
 );

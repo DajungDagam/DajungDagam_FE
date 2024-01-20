@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./NickName.module.css";
 import Button2 from '../../../components/Button2';
 import { setNickNameAtBack } from "../../../api/apiTester";
+import { useNavigate } from 'react-router-dom';
 
 // 입력한 별명 서버로 보냄
 // function sendNickName(nickName) {
@@ -9,16 +10,32 @@ import { setNickNameAtBack } from "../../../api/apiTester";
 // }
 
 const NickName = () => {
-    const [nickname, setNickname] = useState(""); // 닉네임을 저장할 상태 추가
+    const navigate = useNavigate();
+    const [nickname, setNickname] = useState(""); // 닉네임을 저장할 상태
 
     const handleInputChange = (e) => {
-        setNickname(e.target.value); // 입력된 닉네임을 상태에 업데이트
+        setNickname(e.target.value); 
     };
 
-    // 닉네임 전송 함수
     const sendNickName = () => {
         setNickNameAtBack(nickname);
-    };
+        navigate("/loginaddr", {
+            state: { sentNickname: { nickname } },
+        });
+    };    
+
+    // const sendNickName = () => {
+    //     const sentNickname = {
+    //         nickname: nickname
+    //     };
+    //     setNickNameAtBack(nickname);
+
+    //     console.log('닉네임:', nickname);
+    
+    //     navigate("/loginaddr", {
+    //         state: { sentNickname: {nickname} },
+    //     });
+    // };    
 
     return (
         <div className={styles.div}>
