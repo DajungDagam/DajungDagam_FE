@@ -1,9 +1,17 @@
 // Nav.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import classes from "../Nav/Nav.module.css";
+import { logoutToBack } from '../../api/apiTester';
 
 const Nav = (props) => {
+    const navigate = useNavigate();
+
+    const logoutMethod = () => {
+        logoutToBack();
+        navigate('/');
+    };
+
     return (
         <div className={props.style}>
             <div className={classes.navHeader}>
@@ -17,7 +25,7 @@ const Nav = (props) => {
                 </div>
                 <div className={classes.menu2}>
                     <Link to="/mypage"><span>마이페이지</span></Link>
-                    <Link to="/logout"><span>로그아웃</span></Link>
+                    <span><button onClick={logoutMethod}>로그아웃</button></span>
                 </div>
             </div>
         </div>

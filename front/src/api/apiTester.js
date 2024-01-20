@@ -96,5 +96,14 @@ export const sendTradePost = async (uploadedImages, title, productDescription,
     });
   }
 
+  export function logoutToBack() {
+    tokenClient.post("/login/logout")
+    .then(res =>{
+      console.log(res);
+    }).catch(error=>{
+      console.log(error);
+    });
+  }
+
 
 export default apiClient;
