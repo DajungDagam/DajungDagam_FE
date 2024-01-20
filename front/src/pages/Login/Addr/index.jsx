@@ -2,31 +2,34 @@ import React, { useState } from "react";
 import styles from "./Addr.module.css";
 import Button2 from "../../../components/Button2";
 import { setAddrAtBack } from "../../../api/apiTester";
+import { useParams } from "react-router-dom";
 
 const Addr = () => {
-const allGus = [
-"강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구",
-"노원구", "동대문구", "도봉구", "동작구", "마포구", "서대문구", "성동구", "성북구",
-"서초구", "송파구", "영등포구", "용산구", "양천구", "은평구", "종로구", "중구", "중랑구", 
-];
+    const {nickname} = useParams();
 
-const [selectedGu, setSelectedGu] = useState(allGus[0]);
-const [selectedDong, setSelectedDong] = useState("");
+    const allGus = [
+    "강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구",
+    "노원구", "동대문구", "도봉구", "동작구", "마포구", "서대문구", "성동구", "성북구",
+    "서초구", "송파구", "영등포구", "용산구", "양천구", "은평구", "종로구", "중구", "중랑구", 
+    ];
 
-const handleGuChange = (e) => {
-    const selectedGuValue = e.target.value;
-    setSelectedGu(selectedGuValue);
-};
+    const [selectedGu, setSelectedGu] = useState(allGus[0]);
+    const [selectedDong, setSelectedDong] = useState("");
 
-const handleDongChange = (e) => {
-    const selectedDongValue = e.target.value;
-    setSelectedDong(selectedDongValue);
+    const handleGuChange = (e) => {
+        const selectedGuValue = e.target.value;
+        setSelectedGu(selectedGuValue);
+    };
+
+    const handleDongChange = (e) => {
+        const selectedDongValue = e.target.value;
+        setSelectedDong(selectedDongValue);
 };
 
 return (
 <div className={styles.div}>
     <span className={styles.span}>
-    <strong>OOO님</strong>이 <strong>사는 곳</strong>을 설정해주세요!
+        <strong>{nickname}님</strong>이 <strong>사는 곳</strong>을 설정해주세요! 
     </span>
     <div className={styles.div2}>
     <div className={styles.seoulBox}>서울시</div>
@@ -62,14 +65,11 @@ return (
     <div className={styles.div3}>
     <Button2 label="이전" to="/loginnickname" />
     <Button2 label="다음" to="/loginstart" />
-
     <button onClick={setAddrAtBack(selectedGu, selectedDong)}>[임시] 사는 곳 전송하는 버튼</button>
-
     </div> 
 </div>
 );
 };
-
 
 // 선택한 구에 따라 동 목록을 반환하는 함수
 const getDongsForSelectedGu = (selectedGu) => {

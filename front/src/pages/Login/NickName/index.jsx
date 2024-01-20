@@ -4,9 +4,9 @@ import Button2 from '../../../components/Button2';
 import { setNickNameAtBack } from "../../../api/apiTester";
 
 // 입력한 별명 서버로 보냄
-function sendNickName(nickName) {
-    setNickNameAtBack(nickName);
-}
+// function sendNickName(nickName) {
+//     setNickNameAtBack(nickName);
+// }
 
 const NickName = () => {
     const [nickname, setNickname] = useState(""); // 닉네임을 저장할 상태 추가
@@ -14,6 +14,12 @@ const NickName = () => {
     const handleInputChange = (e) => {
         setNickname(e.target.value); // 입력된 닉네임을 상태에 업데이트
     };
+
+    // 닉네임 전송 함수
+    const sendNickName = () => {
+        setNickNameAtBack(nickname);
+    };
+
     return (
         <div className={styles.div}>
             <span className={styles.span}><strong>다정다감</strong>에 처음 오셨군요 !</span>
@@ -28,11 +34,8 @@ const NickName = () => {
                 />
             </div>
             <div className={styles.div3}>
-            <Button2 label="이전" to="/login" />
-            <Button2 label="다음" to="/loginaddr" />
-
-            
-            <button onClick={() => sendNickName(nickname)}>닉네임 정보 전송</button>
+                <Button2 label="이전" to="/login" />
+                <Button2 label="다음" onClick={sendNickName} to="/loginaddr" />
             </div>
     </div>
     );

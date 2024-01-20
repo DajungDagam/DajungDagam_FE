@@ -42,9 +42,10 @@ const tokenClient = axios.create(
     baseURL: 'https://tave-dgdg.run.goorm.io',
     headers: {
       "Content-Type": 'application/json',
-       "Authorization": `Bearer ${token}`,
-       "Access-Control-Allow-Origin": '*',
-             'Access-Control-Allow-Credentials':"true",
+      "Authorization": `Bearer ${token}`,
+
+      "Access-Control-Allow-Origin": `*`,
+      'Access-Control-Allow-Credentials':"true",
     }
   }
 )
