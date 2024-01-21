@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classes from "../Nav/Nav.module.css";
 
-const Nav = props => {
+const Nav2 = props => {
 return (
     <div className={props.style}>
         <div className={classes.navHeader}>
@@ -22,4 +22,4 @@ return (
 );
 };
 
-export default Nav;
+export default Nav2;

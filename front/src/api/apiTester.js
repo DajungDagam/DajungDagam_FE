@@ -61,35 +61,69 @@ export const setAddrAtBack = function(gu_name, dong_name) {
 }
 
 // 백으로 교환 글 정보 보내기
-export const sendTradePost = async (uploadedImages, title, productDescription,
-  recruitmentPeriod, showCalendar, selectedGu, selectedDong, openChatLink, selectedCategory) => {
-  
-    const formData = new FormData();
-    await formData.append('images', uploadedImages);
-    let postDto = {
-      'title': title,
-      'guName': selectedGu,
-      'dongName': selectedDong,            
-      'content' : productDescription,
-      'chatLink' : openChatLink,
-      'postType' : 1,
-      'categoryName' : selectedCategory,
-      'deadline' : recruitmentPeriod
-      // 날짜 형식
-    };
-    const postWriteDtoString = JSON.stringify(postDto);
-    await formData.append('postWriteDto', new Blob([postWriteDtoString], {type: 'application/json'}));
+export const sendTradePost = async (dataToBeSent) => {
+  const { uploadedImages, title, productDescription, recruitmentPeriod, selectedGu, selectedDong, openChatLink, selectedCategory } = dataToBeSent;
 
-    apiClient.post(
+  const formData = new FormData();
+    formData.append('images', uploadedImages);
+    let postDto = {
+        'title': title,
+        'categoryName': selectedCategory,
+        'content': productDescription,
+        'guName': selectedGu,
+        'dongName': selectedDong,
+        'deadline': recruitmentPeriod,
+        'chatLink': openChatLink,
+        'postType': 1
+        // 날짜 형식
+    };
+  const postWriteDtoString = JSON.stringify(postDto);
+  await formData.append('postWriteDto', new Blob([postWriteDtoString], { type: 'application/json' }));
+
+  apiClient.post(
       "/trade/posts",
       formData,
-      writeConfig )
-    .then(res =>{
-      console.log(res);
-    }).catch(error=>{
-      console.log(error);
-    });
-  }
+      writeConfig)
+      .then(res => {
+          console.log(res);
+      }).catch(error => {
+          console.log(error);
+      });
+}
+
+// 백으로 공동구매 글 정보 보내기
+export const sendGroupPost = async (dataToBeSent) => {
+  const { uploadedImages, title, productDescription, recruitmentPeriod, selectedGu, selectedDong, openChatLink, selectedCategory, price, selectedPeople, perCurrCount } = dataToBeSent;
+
+  const formData = new FormData();
+    formData.append('file', uploadedImages);
+    let postDto = {
+        'title': title,
+        'categoryName': selectedCategory,
+        'price': price,
+        'personCount': selectedPeople,
+        'perCurrCount': perCurrCount,
+        'content': productDescription,
+        'guName': selectedGu,
+        'dongName': selectedDong,
+        'deadline': recruitmentPeriod,
+        'chatLink': openChatLink,
+        'postType': 0
+        // 날짜 형식
+    };
+  const postWriteDtoString = JSON.stringify(postDto);
+  await formData.append('postWriteDto', new Blob([postWriteDtoString], { type: 'application/json' }));
+
+  apiClient.post(
+      "/group-buying/posts",
+      formData,
+      writeConfig)
+      .then(res => {
+          console.log(res);
+      }).catch(error => {
+          console.log(error);
+      });
+}
 
   export function logoutToBack() {
     tokenClient.post("/login/logout")

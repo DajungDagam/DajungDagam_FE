@@ -8,9 +8,12 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { FaRegCopy } from "react-icons/fa6";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { sendTradePost } from '../../../api/apiTester';
+import { sendGroupPost } from '../../../api/apiTester';
+import moment from 'moment';
 
 function GroupWriting() {
+    const navigate = useNavigate();
+
     const allGus = [
         "강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구",
         "노원구", "동대문구", "도봉구", "동작구", "마포구", "서대문구", "성동구", "성북구",
@@ -29,8 +32,6 @@ function GroupWriting() {
     const [openChatLink, setOpenChatLink] = useState('');
     const [selectedPeople, setSelectedPeople] = useState(1);
 
-    const navigate = useNavigate();
-
     const handleRecruitmentPeriodChange = (event) => {
         setRecruitmentPeriod(event.target.value);
     };
@@ -43,10 +44,27 @@ function GroupWriting() {
     setProductDescription(event.target.value);
     };
 
-    const handleWritingComplete = () => {
-        // 백으로 글 정보 보내기
-       
-        navigate('/groupcontent', { from: 'GroupWriting' });
+    const handleWritingComplete = async () => {
+        const dataToBeSent = {
+            uploadedImages: uploadedImages,            
+            title: title,
+            selectedCategory: selectedCategory,
+            price: price,
+            productDescription: productDescription,
+            selectedGu: selectedGu,
+            selectedDong: selectedDong,
+            selectedPeople: selectedPeople,
+            recruitmentPeriod: recruitmentPeriod,
+            openChatLink: openChatLink,
+        };
+    
+        console.log('Data to be sent:', dataToBeSent);
+    
+        sendGroupPost(dataToBeSent);
+
+        await navigate("/groupcontent", {
+            state: { ...dataToBeSent },
+        });
     };
 
     const handlePhotoChange = async (event) => {
@@ -61,12 +79,13 @@ function GroupWriting() {
     
                     img.onload = () => {
                         const originalImageUrl = reader.result;
-    
+                        const fileName = file.name;
+
                         // 업로드된 이미지 배열에 추가
                         setUploadedImages([...uploadedImages, originalImageUrl]);
     
                         // 선택한 이미지를 현재 표시 이미지로 설정
-                        setSelectedImage(originalImageUrl);
+                        setSelectedImage({ name: fileName });
                     };
                 };
     
@@ -94,12 +113,23 @@ function GroupWriting() {
     };
 
     const categories = [
-        '미개봉 가공음식',
-        '가전용품',
+        '디지털기기',
+        '가구/인테리어',
+        '여성의류',
+        '여성잡화',
+        '남성의류',
+        '남성잡화',
+        '생활가전',
+        '생활/주방',
+        '가공식품',
+        '스포츠/레저',
+        '취미/게임/음반',
+        '뷰티/미용',
+        '식물',
+        '반려동물용품',
+        '티켓/교환권',
         '도서',
-        '생필품',
-        '옷',
-        '기타',
+        '기타 물품'
     ];
     
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -294,7 +324,7 @@ function GroupWriting() {
 
     const handlePeopleChange = (e) => {
         const selectedPeopleValue = parseInt(e.target.value, 10);
-        setSelectedPeople(selectedPeopleValue);
+        setSelectedPeople(selectedPeopleValue.toString());
     };
 
     return (   
@@ -429,9 +459,13 @@ function GroupWriting() {
                         {recruitmentPeriod ? recruitmentPeriod : '캘린더에서 선택'}
                     </span>
                     <FaCalendarAlt onClick={toggleCalendar} />
-                    {showCalendar && (
-                        <Calendar onChange={(date) => setRecruitmentPeriod(date.toDateString())} />
-                    )}
+                    {/* {showCalendar && (
+                        <Calendar onChange={(date) => setRecruitmentPeriod(date.toDateString())}  />
+                    )} */}
+
+                        {showCalendar && (
+                        <Calendar onChange={(date) => setRecruitmentPeriod(moment(date).format('yyyy-MM-DD'))}  />
+                        )}
                 </div>
             </div>
             <div className={Styles.link}>

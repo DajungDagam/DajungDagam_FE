@@ -1,9 +1,9 @@
 //글쓰기, 마이페이지, 로그아웃
 import React from 'react';
 import { Link } from 'react-router-dom';
-import classes from "./Nav.module.css";
+import classes from "../Nav/Nav.module.css";
 
-const Nav = props => {
+const Nav4 = props => {
     return (
         <div className={props.style}>
             <div className={classes.navHeader}>
@@ -15,7 +15,7 @@ const Nav = props => {
                     <Link to="/recommendmain"><span>추천서비스</span></Link>
                 </div>
                 <div className={classes.menu2}>
-                    <Link to="/barterwriting"><span>글쓰기</span></Link>
+                    <Link to="/groupwriting"><span>글쓰기</span></Link>
                     <Link to="/mypage"><span>마이페이지</span></Link>
                     <Link to="/Logout"><span>로그아웃</span></Link>
                 </div>
@@ -24,4 +24,4 @@ const Nav = props => {
     );
 };
 
-export default Nav;
+export default Nav4;

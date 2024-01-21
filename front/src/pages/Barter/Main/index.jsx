@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Nav from '../../../components/Nav';
+import Nav3 from '../../../components/Nav';
 import Nav2 from '../../../components/Nav2';
 import Footer from '../../../components/Footer';
 import classes from './Main.module.css';
@@ -35,7 +35,7 @@ const MainPage = () => {
 
   return (   
     <div>
-      {isLoggedIn ? <Nav onLogout={handleLogout} /> : <Nav2 />}
+      {isLoggedIn ? <Nav3 onLogout={handleLogout} /> : <Nav2 />}
       <div className={classes.main1Bg}>
         <div className={classes.rabbit2}>
           <Link to="/bartermain"><img src={rabbit2Image} alt="귀여운 토끼" /></Link>
