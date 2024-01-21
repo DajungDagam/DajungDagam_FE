@@ -1,11 +1,13 @@
+// 물물교환(Barter) Main 페이지
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Nav3 from '../../../components/Nav';
+import Nav from '../../../components/Nav';
 import Nav2 from '../../../components/Nav2';
 import Footer from '../../../components/Footer';
 import classes from './Main.module.css';
 import rabbit2Image from "../../../assets/rabbit2.png";
 import PostList from '../../../components/PostList';
+import PostList3 from '../../../components/PostList3';
 import FilterBar1 from '../../../components/FilterBar1';
 import Pagination from '../../../components/Pagination';
 import { getCookie, removeCookie } from '../../../cookie/cookieConfig';
@@ -13,6 +15,7 @@ import { getCookie, removeCookie } from '../../../cookie/cookieConfig';
 const MainPage = () => {
   const isLoggedIn = getCookie("userId") !== undefined;
   const [popularPosts, setPopularPosts] = useState([]);
+  const [tradePosts, setTradePosts] = useState([]);
 
   const handleLogout = () => {
     removeCookie("userId");
@@ -23,19 +26,34 @@ const MainPage = () => {
       try {
         const response = await fetch('https://tave-dgdg.run.goorm.io/trade/like-posts');
         const data = await response.json();
-        console.log(data);
-        setPopularPosts(data);
+        // console.log(data);
+        const top3PopularPosts = data.slice(0, 1).flat();
+        setPopularPosts(top3PopularPosts);
+
       } catch (error) {
         console.error('Error fetching popular posts:', error);
       }
     };
+// trade/posts API 호출
+const fetchTradePosts = async () => {
+  try {
+    const response = await fetch('https://tave-dgdg.run.goorm.io//trade/posts/{post_id}');
+    const data = await response.json();
+    // 여기서 데이터를 적절히 가공해서 setTradePosts를 호출하세요
+    setTradePosts(data);
+  } catch (error) {
+    console.error('게시물을 불러오는 중 에러 발생:', error);
+  }
+};
 
-    fetchPopularPosts();
-  }, []);
+// 각각의 API 호출
+fetchPopularPosts();
+fetchTradePosts();
+}, []);
 
   return (   
     <div>
-      {isLoggedIn ? <Nav3 onLogout={handleLogout} /> : <Nav2 />}
+      {isLoggedIn ? <Nav onLogout={handleLogout} /> : <Nav2 />}
       <div className={classes.main1Bg}>
         <div className={classes.rabbit2}>
           <Link to="/bartermain"><img src={rabbit2Image} alt="귀여운 토끼" /></Link>
@@ -65,7 +83,7 @@ const MainPage = () => {
       
       <div className={classes.postListGrid}>
         {[4, 5, 6, 7, 8, 9, 10, 11, 12].map((item, index) => (
-          <PostList key={index} />
+          <PostList3 key={index} />
         ))}
       </div>
 
@@ -95,3 +113,4 @@ function BarterMain() {
 }
 
 export default BarterMain;
+

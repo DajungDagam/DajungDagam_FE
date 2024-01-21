@@ -1,7 +1,7 @@
-//PostList (물물교환 인기글)
+//PostList3 (물물교환 게시글)
 
 import React, { useState, useEffect } from 'react';
-import styles from './PostList.module.css';
+import styles from './PostList3.module.css';
 
 const Card = () => {
   const [likeCountArray, setLikeCountArray] = useState([]);
@@ -19,7 +19,7 @@ const Card = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://tave-dgdg.run.goorm.io/trade/like-posts');
+        const response = await fetch('https://tave-dgdg.run.goorm.io//trade/posts/{post_id}');
         const data = await response.json();
 
         const updatedLikeCounts = data.map(post => post.wishlistCount);
