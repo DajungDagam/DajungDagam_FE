@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Nav from '../../../components/Nav';
-import { IoMdArrowRoundBack } from "react-icons/io";
 import { FaRegCopy } from "react-icons/fa6";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
@@ -15,11 +14,11 @@ import styles from "./Content.module.css";
 
 function BarterContent() {
     const location = useLocation();
-    const navigate = useNavigate();
-    
+    const tradeData = location.state;
+
     const [gallery, setGallery] = useState(["rabbit1.png", "rabbit2.png", "rabbit3.png", "girl.png"]);  
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [open, setOpen] = useState("https://example.com");  
+    const [open, setOpen] = useState("");  
     const [period, setPeriod] = useState("");
     const [description, setDescription] = useState("");
     const [dealLocation, setDealLocation] = useState("");
@@ -51,9 +50,8 @@ function BarterContent() {
     return (   
     <div className={styles.pageContainer}>
         <Nav />
-        {/* <IoMdArrowRoundBack className={styles.back}/> */}
         <div className={styles.title}>
-            <span className={styles.label2}>전신거울 필요하신 분</span>
+            <span className={styles.label2}>{tradeData.title}</span>
         </div>
         <div className={styles.gallery}>
         <img src={require(`../../../assets/${gallery[currentIndex]}`)} alt={`Image ${currentIndex + 1}`} />
@@ -72,38 +70,38 @@ function BarterContent() {
                 <FaRegEdit className={styles.editIcon} />
                 <RiDeleteBin6Line className={styles.deleteIcon} />
                 {isHeartFilled ? (
-                <FaHeart
-                    className={`${styles.heartIcon} ${styles.filledHeart}`}
-                    onClick={handleHeartClick}
-                />
+                    <FaHeart
+                        className={`${styles.heartIcon} ${styles.filledHeart}`}
+                        onClick={handleHeartClick}
+                        style={{ color: '#e74c3c' }}  
+                    />
                 ) : (
-                <FaRegHeart
-                    className={`${styles.heartIcon}`}
-                    onClick={handleHeartClick}
-                />
-            )}
+                    <FaRegHeart
+                        className={`${styles.heartIcon}`}
+                        onClick={handleHeartClick}
+                    />
+                )}
             </div>
         </div>
         <div className={styles.open}>
             <div className={styles.labelContainer}>
                 <span className={styles.label}>오픈채팅 링크</span>
-                <Text value={open} onChange={(value) => setOpen(value)} /> 
+                <Text value={tradeData.openChatLink} readOnly /> 
                 <FaRegCopy className={styles.copyIcon} onClick={handleCopyOpen} />
             </div>
         </div>
         <div className={styles.period}>
             <div className={styles.labelContainer}>
                 <span className={styles.label}>시작일~마감일</span>
-                <Text value={period} onChange={(value) => setPeriod(value)} />
+                <Text value={tradeData.recruitmentPeriod} readOnly />
             </div>
         </div>
         <div className={styles.description}>
             <div className={styles.labelContainer}>
                 <span className={styles.label}>상품 설명</span>
                 <textarea
-                    placeholder='상품 설명 내용'
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
+                    value={tradeData.productDescription}
+                    readOnly
                     className={styles.textarea}
                 />
             </div>
@@ -111,7 +109,7 @@ function BarterContent() {
         <div className={styles.location}>
             <div className={styles.labelContainer}>
                 <span className={styles.label}>거래 장소</span>
-                <Text value={dealLocation} onChange={(value) => setDealLocation(value)} />
+                <Text value={`${tradeData.selectedGu} ${tradeData.selectedDong}`} readOnly />
             </div>
         </div>
         <div className={styles.state}>

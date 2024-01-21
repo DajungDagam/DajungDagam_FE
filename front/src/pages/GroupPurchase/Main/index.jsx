@@ -1,7 +1,6 @@
 // 공동구매 Main 페이지
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Nav from '../../../components/Nav';
 import Nav2 from '../../../components/Nav2'; // Nav2 컴포넌트를 추가로 import
 import Footer from '../../../components/Footer';
 import classes from './Main.module.css';
@@ -10,6 +9,7 @@ import PostList2 from '../../../components/PostList2';
 import FilterBar1 from '../../../components/FilterBar1';
 import Pagination from '../../../components/Pagination';
 import { getCookie, removeCookie } from '../../../cookie/cookieConfig'; // 실제 쿠키 관리 유틸리티 경로로 변경
+import Nav4 from '../../../components/Nav4';
 
 // MainPage 컴포넌트 정의
 const MainPage = () => {
@@ -33,7 +33,7 @@ const MainPage = () => {
 
   return (
     <div>
-      {isLoggedIn ? <Nav onLogout={handleLogout} /> : <Nav2 />} {/* 로그인 여부에 따라 다른 네비게이션 컴포넌트를 렌더링 */}
+      {isLoggedIn ? <Nav4 onLogout={handleLogout} /> : <Nav2 />} {/* 로그인 여부에 따라 다른 네비게이션 컴포넌트를 렌더링 */}
       <div className={classes.main2Bg}>
         <div className={classes.mainText1}>
           <p className={classes.surHeading}>공동구매</p>

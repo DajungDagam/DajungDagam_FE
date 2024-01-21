@@ -45,7 +45,7 @@ function BarterWriting() {
 
     const handleWritingComplete = async () => {
         const dataToBeSent = {
-            selectedImage: selectedImage,
+            uploadedImages: uploadedImages,            
             title: title,
             productDescription: productDescription,
             recruitmentPeriod: recruitmentPeriod,
@@ -57,8 +57,10 @@ function BarterWriting() {
     
         console.log('Data to be sent:', dataToBeSent);
     
+        sendTradePost(dataToBeSent);
+    
         await navigate("/bartercontent", {
-            state: { ...dataToBeSent, selectedImage },
+            state: { ...dataToBeSent }
         });
     };
     
@@ -75,12 +77,12 @@ function BarterWriting() {
                     img.onload = () => {
                         const originalImageUrl = reader.result;
                         const fileName = file.name;
-
+    
                         // 업로드된 이미지 배열에 추가
                         setUploadedImages([...uploadedImages, originalImageUrl]);
     
                         // 선택한 이미지를 현재 표시 이미지로 설정
-                        setSelectedImage({ name: fileName });
+                        setSelectedImage(file); // 파일 객체로 변경
                     };
                 };
     

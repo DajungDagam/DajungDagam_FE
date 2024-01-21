@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Nav from '../../../components/Nav';
-import { IoMdArrowRoundBack } from "react-icons/io";
 import { FaRegCopy } from "react-icons/fa6";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
@@ -13,6 +13,9 @@ import Text from '../../../components/Text';
 import styles from "./Content.module.css";
 
 function GroupContent() {
+    const location = useLocation();
+    const tradeData = location.state;
+
     const [gallery, setGallery] = useState(["rabbit1.png", "rabbit2.png", "rabbit3.png", "girl.png"]);  
     const [currentIndex, setCurrentIndex] = useState(0);
     const [open, setOpen] = useState("https://example.com");  
@@ -20,7 +23,6 @@ function GroupContent() {
     const [description, setDescription] = useState("");
     const [people, setPeople] = useState("");
     const [price, setPrice] = useState("");
-    const [location, setLocation] = useState("");
     const [state, setState] = useState("");
     const [profileImage, setProfileImage] = useState("profile.png");
     const [userName, setUserName] = useState("토깽이");
@@ -54,9 +56,8 @@ function GroupContent() {
     return (   
     <div className={styles.pageContainer}>
         <Nav />
-        {/* <IoMdArrowRoundBack className={styles.back}/> */}
         <div className={styles.title}>
-            <span className={styles.label2}>전신거울 필요하신 분</span>
+            <span className={styles.label2}>{tradeData.title}</span>
         </div>
         <div className={styles.gallery}>
         <img src={require(`../../../assets/${gallery[currentIndex]}`)} alt={`Image ${currentIndex + 1}`} />
@@ -90,43 +91,41 @@ function GroupContent() {
         <div className={styles.open}>
             <div className={styles.labelContainer}>
                 <span className={styles.label}>오픈채팅 링크</span>
-                <Text value={open} onChange={(value) => setOpen(value)} /> 
+                <Text value={tradeData.openChatLink} readOnly /> 
                 <FaRegCopy className={styles.copyIcon} onClick={handleCopyOpen} />
             </div>
         </div>
         <div className={styles.period}>
             <div className={styles.labelContainer}>
                 <span className={styles.label}>시작일~마감일</span>
-                <Text value={period} onChange={(value) => setPeriod(value)} />
+                <Text value={tradeData.recruitmentPeriod} readOnly />
             </div>
         </div>
         <div className={styles.people}>
             <div className={styles.labelContainer}>
                 <span className={styles.label}>모집인원</span>
-                <Text value={people} onChange={(value) => setPeople(value)} />
+                <Text value={tradeData.selectedPeople.toString()} readOnly />
             </div>
         </div>
         <div className={styles.price}>
             <div className={styles.labelContainer}>
                 <span className={styles.label}>가격/인당 가격</span>
-                <Text value={price} onChange={(value) => setPrice(value)} />
+                <Text value={tradeData.price} readOnly />
             </div>
         </div>
         <div className={styles.description}>
             <div className={styles.labelContainer}>
                 <span className={styles.label}>상품 설명</span>
                 <textarea
-                    placeholder='상품 설명 내용'
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    className={styles.textarea}
+                    value={tradeData.productDescription}
+                    readOnly
                 />
             </div>
         </div>
         <div className={styles.location}>
             <div className={styles.labelContainer}>
                 <span className={styles.label}>거래 장소</span>
-                <Text value={location} onChange={(value) => setLocation(value)} />
+                <Text value={`${tradeData.selectedGu} ${tradeData.selectedDong}`} readOnly />
             </div>
         </div>
         <div className={styles.state}>
