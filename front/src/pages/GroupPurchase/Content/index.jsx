@@ -85,6 +85,7 @@ function GroupContent() {
         }
     };
 
+// 할로
     return (   
     <div className={styles.pageContainer}>
         <Nav />
