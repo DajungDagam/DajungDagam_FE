@@ -44,6 +44,16 @@ const tokenClient = axios.create({
   }
 });
 
+const postClient = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    "Authorization": `Bearer ${token}`,
+    "Access-Control-Allow-Origin": `*`,
+    'Access-Control-Allow-Credentials':"true",
+  }
+});
+
+
 // 글쓰기용 헤더
 const writeConfig = {
   "Content-Type": 'multipart/form-data',
@@ -114,7 +124,7 @@ export const sendGroupPost = async (dataToBeSent) => {
   const postWriteDtoString = JSON.stringify(postDto);
   await formData.append('postWriteDto', new Blob([postWriteDtoString], { type: 'application/json' }));
 
-  apiClient.post(
+  postClient.post(
       "/group-buying/posts",
       formData,
       writeConfig)
