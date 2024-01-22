@@ -9,50 +9,52 @@ import rabbit2Image from "../../../assets/rabbit2.png";
 import PostList from '../../../components/PostList';
 import PostList3 from '../../../components/PostList3';
 import FilterBar1 from '../../../components/FilterBar1';
-import Pagination from '../../../components/Pagination';
 import { getCookie, removeCookie } from '../../../cookie/cookieConfig';
 
+// MainPage 컴포넌트 정의
 const MainPage = () => {
   const isLoggedIn = getCookie("userId") !== undefined;
   const [popularPosts, setPopularPosts] = useState([]);
   const [tradePosts, setTradePosts] = useState([]);
 
+// 로그아웃 처리
   const handleLogout = () => {
     removeCookie("userId");
   };
 
   useEffect(() => {
+    // trade-like-posts API 호출
     const fetchPopularPosts = async () => {
       try {
         const response = await fetch('https://tave-dgdg.run.goorm.io/trade/like-posts');
         const data = await response.json();
-        // console.log(data);
-        const top3PopularPosts = data.slice(0, 1).flat();
+        const top3PopularPosts = data.slice(0, 3).flat();
         setPopularPosts(top3PopularPosts);
-
       } catch (error) {
         console.error('Error fetching popular posts:', error);
       }
     };
-// trade/posts API 호출
-const fetchTradePosts = async () => {
-  try {
-    const response = await fetch('https://tave-dgdg.run.goorm.io//trade/posts/{post_id}');
-    const data = await response.json();
-    // 여기서 데이터를 적절히 가공해서 setTradePosts를 호출하세요
-    setTradePosts(data);
-  } catch (error) {
-    console.error('게시물을 불러오는 중 에러 발생:', error);
-  }
-};
-
-// 각각의 API 호출
-fetchPopularPosts();
-fetchTradePosts();
-}, []);
+  
+    // trade-posts API 호출
+    const fetchTradePosts = async () => {
+      try {
+        const response = await fetch('https://tave-dgdg.run.goorm.io/trade');
+        const data = await response.json();
+        setTradePosts(data);
+      } catch (error) {
+        console.error('게시물을 불러오는 중 에러 발생:', error);
+      }
+    };
+  
+    // 각각의 API 호출
+    fetchPopularPosts();
+    fetchTradePosts();
+  }, []); // 두 번째 파라미터가 빈 배열이 아니라면, 데이터가 업데이트될 때마다 실행됨
+  
 
   return (   
     <div>
+       {/* 헤더이미지 */}
       {isLoggedIn ? <Nav onLogout={handleLogout} /> : <Nav2 />}
       <div className={classes.main1Bg}>
         <div className={classes.rabbit2}>
@@ -65,48 +67,36 @@ fetchTradePosts();
         </div>
       </div>
 
-      <div className={classes.popularPostsHeading}>
-        <h2>인기글</h2>
-      </div>
-
-      <div className={classes.postListSection}>
-        {popularPosts.map((post, index) => (
-          <PostList key={index} post={post} />
-        ))}
-      </div>
-
-      <div className={classes.popularPostsHeading}>
-        <h2>게시물</h2>
-      </div>
-      
-      <FilterBar1 />
-      
-      <div className={classes.postListGrid}>
-        {[4, 5, 6, 7, 8, 9, 10, 11, 12].map((item, index) => (
-          <PostList3 key={index} />
-        ))}
-      </div>
-
-      <div className={classes.paginationCenter}>
-        <Pagination
-          totalPage={10}
-          currentPage={1}
-          onPageChange={(page) => console.log(page)}
-        />
-      </div>
-
-      <Footer />
+      {/* "인기글" 추가 */}
+    <div className={classes.popularPostsHeading}>
+      <h2>인기글</h2>
     </div>
+
+
+  <div className={`${classes.postListGrid}`}>
+      <PostList posts={popularPosts} />
+    </div> 
+
+    {/* "게시물" 추가 */}
+    <div className={classes.popularPostsHeading}>
+      <h2>게시물</h2>
+    </div>
+    
+    {/* "필터바" 추가 */}
+    <FilterBar1 />
+    
+    {/* "postlist3로 게시물" 추가 */}
+    <div className={`${classes.postListGrid}`}>
+      <PostList3 posts={tradePosts} />
+    </div>
+
+    {/* "Footer" 추가 */}
+    <Footer />
+  </div>
   );
 };
 
 function BarterMain() {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
-
   return (
     <MainPage />
   );

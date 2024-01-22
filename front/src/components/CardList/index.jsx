@@ -1,10 +1,8 @@
 import React from 'react';
 import styles from "./CardList.module.css"; 
 
-
 const UserProfileCard = () => {
   
-
   return (
     <div className={styles.profileContainer}>
       {/* 왼쪽 섹션 */}

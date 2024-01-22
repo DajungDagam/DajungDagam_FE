@@ -7,10 +7,9 @@
     padding: 0;
     color: #000;
   }
-  
   .card-container {
     width: 350px;
-    height: 410px;
+    height: auto; /* 높이를 자동으로 조절하도록 변경 */
     margin: 20px auto;
     background-color: #fff;
     border-radius: 15px;
@@ -18,7 +17,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc;
   }
-  
   
   .status-button {
     width: 90px;
@@ -125,8 +123,8 @@
   
   
   .like-view-container {
-    display: flex; /* 가로로 배치하기 위한 Flexbox 속성 추가 */
-    align-items: center; /* 아이템들을 수직 가운데 정렬 */
+    display: flex; 
+    align-items: center; 
   }
   
   .like-button {
@@ -136,13 +134,13 @@
   }
   
   .like-button span {
-    margin-left: 5px; /* 하트 이모지와 텍스트 간격 조절 */
+    margin-left: 5px; 
     font-weight: bold;
-    color: #262626; /* 텍스트 색상 */
+    color: #262626;
   }
   
   .like-button:hover {
-    animation: pulse 0.5s ease infinite; /* 호버 시 애니메이션 효과 추가 */
+    animation: pulse 0.5s ease infinite; 
   }
   
   @keyframes pulse {
@@ -158,6 +156,5 @@
   }
   
   .view-count {
-    margin-left: 10px; /* 좋아요 버튼과 간격을 주기 위한 마진 추가 */
-    /* 다른 스타일들 ... */
+    margin-left: 10px; 
   }

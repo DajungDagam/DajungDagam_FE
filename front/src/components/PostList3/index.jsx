@@ -19,12 +19,13 @@ const Card = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://tave-dgdg.run.goorm.io//trade/posts/{post_id}');
+       
+        const response = await fetch('https://tave-dgdg.run.goorm.io/trade');
         const data = await response.json();
 
         const updatedLikeCounts = data.map(post => post.wishlistCount);
         const updatedViewCounts = data.map(post => post.viewCount);
-
+        console.log(response);
         setLikeCountArray(updatedLikeCounts);
         setViewCountArray(updatedViewCounts);
         setPostDataArray(data);
