@@ -73,7 +73,7 @@ const MainPage = () => {
     </div>
 
 
-  <div className={`${classes.popularPostsHeading} ${classes.postListGrid}`}>
+  <div className={`${classes.postListGrid}`}>
       <PostList posts={popularPosts} />
     </div> 
 
@@ -86,7 +86,7 @@ const MainPage = () => {
     <FilterBar1 />
     
     {/* "postlist3로 게시물" 추가 */}
-    <div className={`${classes.popularPostsHeading} ${classes.postListGrid}`}>
+    <div className={`${classes.postListGrid}`}>
       <PostList3 posts={tradePosts} />
     </div>
 

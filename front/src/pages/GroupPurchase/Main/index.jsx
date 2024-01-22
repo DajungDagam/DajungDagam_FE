@@ -86,7 +86,10 @@ const MainPage = () => {
         <h2>인기글</h2>
       </div>
       
-      <PostList2 posts={popularPosts} />
+      {/* <PostList2 posts={popularPosts} /> */}
+      <div className={`${classes.postListGrid}`}>
+        <PostList2 posts={popularPosts} />
+      </div> 
 
       {/* "게시물" 추가 */}
       <div className={classes.popularPostsHeading}>
@@ -98,8 +101,11 @@ const MainPage = () => {
 
        
       {/* "postlist4로 게시물" 추가 */}
+      {/* <PostList4 posts={groupBuyingPosts} /> */}
+      <div className={`${classes.postListGrid}`}>
+        <PostList4 posts={groupBuyingPosts} />
+      </div>
 
-      <PostList4 posts={groupBuyingPosts} />
     
        {/* "Footer" 추가 */}
       <Footer />
