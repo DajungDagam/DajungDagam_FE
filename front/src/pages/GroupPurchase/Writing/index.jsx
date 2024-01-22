@@ -95,7 +95,7 @@ function GroupWriting() {
             }
         }
     };
-
+    
     const handlePhotoClick = () => {
         if (uploadedImages.length >= 5) {
             alert('사진은 최대 5개까지 업로드 가능합니다.');
@@ -307,20 +307,20 @@ function GroupWriting() {
             setOpenChatLink(event.target.value);
         };
     
-        const handleCopyToClipboard = async () => {
-            const input = document.getElementById('openChat');
-            if (input) {
-                input.select();
-                document.execCommand('copy');
-            }
-            try {
-                await navigator.clipboard.writeText(openChatLink);
-                alert('링크가 복사되었습니다.');
-            } catch (err) {
-                console.error('복사 중 오류 발생:', err);
-                alert('링크 복사에 실패했습니다.');
-            }
-        };
+    const handleCopyToClipboard = async () => {
+        const input = document.getElementById('openChat');
+        if (input) {
+            input.select();
+            document.execCommand('copy');
+        }
+        try {
+            await navigator.clipboard.writeText(openChatLink);
+            alert('링크가 복사되었습니다.');
+        } catch (err) {
+            console.error('복사 중 오류 발생:', err);
+            alert('링크 복사에 실패했습니다.');
+        }
+    };
 
     const handlePeopleChange = (e) => {
         const selectedPeopleValue = parseInt(e.target.value, 10);
