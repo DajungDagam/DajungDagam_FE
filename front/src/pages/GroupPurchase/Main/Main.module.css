@@ -96,14 +96,14 @@
   }
   
   .gridItem {
-    width: 100%;
+    width: calc(33.33% - 20px);
   }
   
   /* 기존 스타일들... */
   
-  .paginationCenter {
+  /* .paginationCenter {
     display: flex;
     justify-content: center;
     margin-top: 20px; /* 원하는 여백 설정 */
-  }
+
   
