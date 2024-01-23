@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './CardList.module.css'; // Importing styles as an object
 
-const PostItem = ({ status, category, title, date }) => (
+
+
+const PostItem = ({ status, category, title, date } = JSON.parse()) => (
   <div className={styles['post-item']}>
     <div className={styles['status']}>{status}</div>
     <div className={styles['category']}>{category}</div>

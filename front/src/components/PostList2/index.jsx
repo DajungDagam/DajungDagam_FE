@@ -69,12 +69,6 @@ const Card = () => {
           </div>
   
           <div className={styles.footer}>
-            <div className={styles['user-info']}>
-              <div className={styles['user-image']}>
-                <img src="your_user_image_url" alt="User Image" />
-              </div>
-              <span>{postData.userName}</span>
-            </div>
   
             <div className={styles['like-view-container']}>
               <div className={styles['like-button']} onClick={() => handleLikeClick(index)}>
