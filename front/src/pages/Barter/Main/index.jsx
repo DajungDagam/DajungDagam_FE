@@ -62,8 +62,8 @@ const MainPage = () => {
         </div>
         <div className={classes.mainText1}>
           <p className={classes.surHeading}>물물교환</p>
-          <div className={classes.mainHeading}>이웃간 물물교환</div>
-          <p className={classes.subHeading}>동네 주민들과 가깝고 따뜻한 거래를<br />지금 경험해보세요.</p>
+          <div className={classes.mainHeading}>필요없는 물건을<br />필요한 물건으로?</div>
+          <p className={classes.subHeading}>자취생들과의 물물교환을 통해 돈을 아껴보세요.</p>
         </div>
       </div>
 

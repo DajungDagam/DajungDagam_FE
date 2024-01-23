@@ -71,9 +71,8 @@ const MainPage = () => {
       <div className={classes.main2Bg}>
         <div className={classes.mainText1}>
           <p className={classes.surHeading}>공동구매</p>
-          <div className={classes.mainHeading}>이웃만 아는<br />공동구매 이야기</div>
-          <p className={classes.subHeading}>우리동네만의 다양한 공동구매를<br />
-            공감과 댓글로 나누어요.</p>
+          <div className={classes.mainHeading}>함께하면<br />더 저렴해진다!</div>
+          <p className={classes.subHeading}>한번에 많이 구매하여 돈도 아끼고,<br />주변 자취생들과 친분도 쌓아보세요.</p>
         </div>
         <div className={classes.rabbit2}>
           <Link to="/groupmain"><img src={rabbit3Image} alt="귀여운 토끼" /></Link>
