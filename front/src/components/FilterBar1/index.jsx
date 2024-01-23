@@ -9,7 +9,7 @@ const NavigationBar = () => {
   ];
 
   const allMojib = [
-    "모집예정", "모집중", "모집완료"
+    "모집예정", "진행 중", "모집완료"
   ];
 
   const allCategories = [
