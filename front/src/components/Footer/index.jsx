@@ -1,7 +1,7 @@
 // Footer.js
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import rabbit1Image from "../../assets/rabbit1.png";
 import classes from "./Footer.module.css";
 
 const Footer = () => {
@@ -10,8 +10,8 @@ const Footer = () => {
       <div className={classes.footerContent}>
         <ul>
           <li><span className={classes.brownText}>그룹</span></li><br />
-          <li>TAVE 12기 다정다감</li>
-          <li>아이콘 삽입</li>
+          <li>TAVE 12기 후반기 프로젝트</li>
+          <li><img src={rabbit1Image} alt="귀여운 토끼" style={{ width: '190px', height: '170px' }} /></li>
         </ul>
 
         <ul>
@@ -26,12 +26,12 @@ const Footer = () => {
 
         <ul>
           <li><span className={classes.brownText}>연락처</span></li><br />
-          <li>bbiyakeke@naver.com | @dasf</li>
-          <li>adjfajkl@naver.com | @ewjrlfd</li>
-          <li>fjkalda@naver.com | @fdjklasdjf</li>
-          <li>dfaasd6@naver.com   | @fdada</li>
-          <li>dfa891@naver.com | @dsfads</li>
-          <li>fdaasfg1@naver.com | @kkldasa</li>
+          <li>bbiyakeke@naver.com | @seongwon</li>
+          <li>adjfajkl@naver.com | @dogyun</li>
+          <li>fjkalda@naver.com | @sanghun</li>
+          <li>dfaasd6@naver.com   | @hyuntae</li>
+          <li>1114jiwoo@gmail.com | @jiwoo</li>
+          <li>fdaasfg1@naver.com | @jiyeon</li>
         </ul>
       </div>
       <br />
